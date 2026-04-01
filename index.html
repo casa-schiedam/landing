@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASA — Crowdfunding Schiedam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #C4593A;
+    --terracotta-light: #FAECE7;
+    --olive: #5C6B3A;
+    --cream: #F7F3EC;
+    --dark: #1E1A14;
+    --mid: #6B6458;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; }
+
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 4rem 5%;
+    gap: 4rem;
+    border-bottom: 0.5px solid #D4C9B8;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(247,243,236,0.88), rgba(247,243,236,0.88)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero::before {
+    content: 'CASA';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32vw;
+    color: rgba(196,89,58,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+  }
+
+  .hero h1 em { font-style: italic; color: var(--terracotta); }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--mid);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--terracotta);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #A8432A; }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-card {
+    background: #fff;
+    border: 0.5px solid #D4C9B8;
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: #E8E0D4;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--terracotta);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 1.5s ease;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #D4C9B8;
+    border: 0.5px solid #D4C9B8;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat {
+    background: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--mid);
+    letter-spacing: 0.05em;
+  }
+
+  .section { padding: 5rem 5%; border-bottom: 0.5px solid #D4C9B8; }
+
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+
+  .letter {
+    font-size: 16px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  .letter p { margin-bottom: 1.2rem; }
+  .letter em { font-style: italic; color: var(--dark); }
+  .letter .signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--dark);
+    margin-top: 1.5rem;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.55fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .story-image-frame {
+    position: sticky;
+    top: 6rem;
+    aspect-ratio: 2/3;
+    background: #E8E0D4;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 0.5px solid #D4C9B8;
+  }
+
+  .story-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .story-image-frame .frame-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--mid);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .story-image-frame .frame-placeholder svg {
+    width: 32px;
+    height: 32px;
+    stroke: #C4B8A8;
+    fill: none;
+    stroke-width: 1;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: #D4C9B8;
+    border: 0.5px solid #D4C9B8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .service {
+    background: #fff;
+    padding: 2rem 1.5rem;
+  }
+
+  .service-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--terracotta-light);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-icon svg { width: 16px; height: 16px; stroke: var(--terracotta); fill: none; stroke-width: 1.5; }
+
+  .service h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+
+  .service p { font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.6; }
+
+  .tiers { display: flex; flex-direction: column; gap: 10px; margin-top: 3rem; max-width: 75%; }
+
+  .tier {
+    background: #fff;
+    border: 0.5px solid #D4C9B8;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.15s;
+  }
+
+  .tier:hover { background: var(--cream); }
+
+  .tier-featured { background: var(--terracotta-light); border-color: #E8C4B0; }
+  .tier-featured:hover { background: #F5D8CC; }
+
+  .tier-badge {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--terracotta);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .tier-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .tier-desc { font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.6; max-width: 520px; }
+
+  .tier-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    white-space: nowrap;
+  }
+
+  .faq { max-width: 680px; margin-top: 3rem; }
+
+  .faq-item { border-top: 0.5px solid #D4C9B8; padding: 1.2rem 0; }
+  .faq-item:last-child { border-bottom: 0.5px solid #D4C9B8; }
+
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .faq-a { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.7; }
+
+  .cta-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background: var(--dark);
+  }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: #F7F3EC;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .cta-section p { color: #9C9589; font-size: 15px; margin-bottom: 2.5rem; font-weight: 300; }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    border-bottom: 0.5px solid #D4C9B8;
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--dark);
+  }
+
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-size: 13px; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  @media (max-width: 700px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 3rem 5%; }
+    .hero-visual { display: none; }
+    .story-grid { grid-template-columns: 1fr; }
+    .story-image-frame { display: none; }
+    .tiers { max-width: 100%; }
+    .tier { grid-template-columns: 1fr; }
+    .tier-price { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">CASA</div>
+    <div class="nav-links">
+      <a href="#storia">La storia</a>
+      <a href="#premi">I premi</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" style="color: var(--terracotta);">Sostieni →</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Crowdfunding · Schiedam, NL</p>
+      <h1>CASA nasce<br>a Schiedam.<br><em>Aiutaci ad<br>aprire la porta.</em></h1>
+      <p class="hero-sub">Un posto dove cucinare insieme, mangiare insieme, conoscersi, sentirsi a casa. Stiamo raccogliendo i fondi — e abbiamo bisogno di te.</p>
+      <button class="btn-primary">Sostieni la campagna su Ulule →</button>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="progress-label">
+          <span>Obiettivo: €40.000</span>
+          <span id="pct">0%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+        <p style="font-size: 12px; color: var(--mid); margin-top: 8px; font-weight: 300;">Campagna attiva · Ulule</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="stat-num" id="s1">0</span><span class="stat-label">Sostenitori</span></div>
+        <div class="stat"><span class="stat-num" id="s2">€0</span><span class="stat-label">Raccolti</span></div>
+        <div class="stat"><span class="stat-num">28</span><span class="stat-label">Giorni rimasti</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="storia">
+    <p class="section-tag">La storia</p>
+    <h2>Una cucina napoletana, poi i Paesi Bassi, poi un'idea.</h2>
+    <div class="story-grid">
+      <div class="letter">
+        <p><em>Caro amico, cara amica,</em></p>
+        <p>Io sono Raffaella. Sono italiana, e vengo da una delle città più belle del mondo, Napoli, dove il cibo non è solo tradizione, ma è l'espressione di una comunità, e famiglia.</p>
+        <p>Nei giorni di festa, a casa mia non c'era un cuoco solo — c'eravamo tutti. Mia mamma tirava la pasta sul tavolo della cucina, i miei zii preparavano il ragù dal giorno prima, mio zio era l'addetto agli antipasti. La zia era l'addetta alle fritture. E noi bambini aiutavamo dove potevano, o disturbavano, che è quasi la stessa cosa. C'era chi parlava tanto, chi cercava di svignarsela, e chi assaggiava di nascosto.</p>
+        <p>Non era solo un pranzo. Era un rito. Un modo di dire: <em>siamo qui, siamo insieme, ci vogliamo bene.</em></p>
+        <p>Quando mi sono trasferita nei Paesi Bassi, quella cosa mi è mancata. Non il cibo in sé — quello ogni tanto arriva con il pacco da giù. Mi è mancato il resto. Il rumore di una cucina piena. Le risate, le urla, i rimproveri, le prese in giro. Il senso che preparare da mangiare per qualcuno è un atto d'amore. E soprattutto mi è mancato quel modo di tramandare — non con ricette scritte, ma con il grembiule, le mani in pasta, fianco a fianco, generazione dopo generazione.</p>
+        <p>Con Momo Cooking ho iniziato a ritrovare quella sensazione. Ho cucinato per gli altri perché mi viene naturale — è il mio modo di prendermi cura delle persone. E nei workshop ho scoperto qualcosa di ancora più bello: che intorno a un tavolo di lavoro, con le mani in farina, le persone si aprono. È un momento in cui ci si riscopre simili e vicini — persone diverse, che vengono da tutto il mondo, e che in fondo condividono le stesse cose: le gioie e i dolori dell'amore, l'orgoglio e l'impegno nel crescere i figli, i sogni, la stanchezza di tutti i giorni e le piccole vittorie. E tanti, come me, che vengono da lontano con lo stesso desiderio: costruirsi, giorno dopo giorno, un posto da chiamare casa.</p>
+        <p>È proprio per questo che adesso voglio un posto fisso — il mio posto — dove quella magia possa succedere ogni giorno.</p>
+        <p class="signature">Con affetto, Raffaella</p>
+      </div>
+      <div class="story-image-frame">
+        <img src="story-image.jpg" alt="Raffaella in cucina" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="frame-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>story-image.jpg</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-tag">Cosa sarà CASA</p>
+    <h2>Un posto, quattro modi di viverlo.</h2>
+    <div class="services">
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6 2 3 7 3 12h18c0-5-3-10-9-10z"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M5 12v8h14v-8"/></svg></div>
+        <h3>Workshop di cucina</h3>
+        <p>Pasta fresca, cucine del mondo, laboratori per famiglie. Per tutti i livelli — l'unico requisito è la voglia di stare in cucina.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Cene private</h3>
+        <p>Serate esclusive con menu a sorpresa e racconti dietro ogni piatto. Mensili o su prenotazione per gruppi privati.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke-linecap="round"/></svg></div>
+        <h3>Bistro quotidiano</h3>
+        <p>Colazione italiana, pasta del giorno, qualcosa di buono da portare via. Dal martedì alla domenica.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Negozio e prodotti</h3>
+        <p>Pasta fresca, sughi fatti in casa, ingredienti selezionati da piccoli produttori. Cose buone da portare a casa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="premi">
+    <p class="section-tag">I premi</p>
+    <h2>Scegli come far parte di CASA.</h2>
+    <div class="tiers">
+      <div class="tier">
+        <div><div class="tier-name">L'Amico</div><div class="tier-desc">Il tuo nome tra i fondatori di CASA, aggiornamenti esclusivi, una ricetta e un ringraziamento personale da Raffaella.</div></div>
+        <div class="tier-price">€25</div>
+      </div>
+      <div class="tier">
+        <div><div class="tier-name">Il Vicino</div><div class="tier-desc">Kit spedito a casa: pasta artigianale, ricetta e una piccola sorpresa italiana. + nome tra i fondatori.</div></div>
+        <div class="tier-price">€35</div>
+      </div>
+      <div class="tier">
+        <div><div class="tier-name">L'Ospite</div><div class="tier-desc">Kit più ricco: pasta, salsa, ingredienti scelti, ricetta dettagliata e nota scritta a mano. + invito prioritario all'apertura.</div></div>
+        <div class="tier-price">€60</div>
+      </div>
+      <div class="tier tier-featured">
+        <div><div class="tier-badge">Più scelto</div><div class="tier-name">Il Commensale</div><div class="tier-desc">Kit completo con prodotti premium, specialità italiane, ricettario esclusivo CASA e posto riservato alla prima cena privata.</div></div>
+        <div class="tier-price">€95</div>
+      </div>
+      <div class="tier">
+        <div><div class="tier-name">Il Compare</div><div class="tier-desc">Posto riservato a uno dei primissimi workshop dopo l'apertura. Cucina con Raffaella, conosci lo spazio prima di tutti.</div></div>
+        <div class="tier-price">€150</div>
+      </div>
+      <div class="tier">
+        <div><div class="tier-name">Di Famiglia</div><div class="tier-desc">Workshop per te e un ospite — cucinare è meglio in due. Porta chi vuoi e vivete insieme la prima volta da CASA.</div></div>
+        <div class="tier-price">€200</div>
+      </div>
+      <div class="tier">
+        <div><div class="tier-name">Il Pilastro</div><div class="tier-desc">Per aziende che vogliono sostenere un progetto di comunità. Workshop team-building, visibilità sui materiali, accesso privilegiato allo spazio.</div></div>
+        <div class="tier-price">€500+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <p class="section-tag">FAQ</p>
+    <h2>Qualche domanda?</h2>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">Quando apre CASA?</div><div class="faq-a">Stiamo lavorando per aprire nella prima metà del 2026. I sostenitori saranno i primi a sapere la data esatta.</div></div>
+      <div class="faq-item"><div class="faq-q">Cosa succede se non raggiungiamo l'obiettivo su Ulule?</div><div class="faq-a">Ulule funziona con il sistema "tutto o niente" — se non raggiungiamo il minimo, ricevi indietro il tuo contributo integralmente.</div></div>
+      <div class="faq-item"><div class="faq-q">Posso sostenere anche se non sono nei Paesi Bassi?</div><div class="faq-a">Sì. I kit vengono spediti in tutta Europa. I reward non fisici sono accessibili a tutti.</div></div>
+      <div class="faq-item"><div class="faq-q">Come vengono usati i fondi?</div><div class="faq-a">Per la ristrutturazione dello spazio, l'attrezzatura della cucina, i permessi e il lancio operativo. Ogni euro va direttamente a costruire CASA.</div></div>
+      <div class="faq-item"><div class="faq-q">Come vi contatto?</div><div class="faq-a">Scrivi a info@casa-schiedam.nl oppure seguici su Instagram @casa.schiedam</div></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>CASA non è solo un ristorante.<br>È un posto che mancava.</h2>
+    <p>Stiamo costruendolo insieme — e abbiamo bisogno di te.</p>
+    <button class="btn-primary" style="font-size: 15px; padding: 16px 40px;">Scegli il tuo contributo su Ulule →</button>
+  </section>
+
+  <script>
+    setTimeout(() => {
+      const fill = document.getElementById('pfill');
+      const pct = document.getElementById('pct');
+      const s1 = document.getElementById('s1');
+      const s2 = document.getElementById('s2');
+      if (fill) {
+        fill.style.width = '34%';
+        pct.textContent = '34%';
+        let n = 0, e = 0;
+        const target1 = 47, target2 = 13600;
+        const step = () => {
+          n = Math.min(n + 1, target1);
+          e = Math.min(e + 340, target2);
+          s1.textContent = n;
+          s2.textContent = '€' + e.toLocaleString('it-IT');
+          if (n < target1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    }, 300);
+  </script>
+
+</body>
+</html>
