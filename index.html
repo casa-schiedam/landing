@@ -214,8 +214,10 @@
     }
     .hero-photo {
       width: 100%;
-      height: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
+}
     }
     /* Placeholder when no photo */
     .photo-placeholder {
@@ -308,6 +310,7 @@
       gap: 1.5rem;
       position: sticky;
       top: 100px;
+      max-width: 520px;
     }
 
     /* FIX: foto di Raffa — max-width aggiunto */
@@ -315,7 +318,8 @@
       aspect-ratio: 4/5;
       overflow: hidden;
       border-radius: 2px;
-      max-width: 340px;
+      margin-left: 1.5rem;
+      max-width: 520px;
     }
 
     .storia-photo-main img,
@@ -331,7 +335,6 @@
       aspect-ratio: 16/9;
       overflow: hidden;
       border-radius: 2px;
-      margin-left: 3rem;
     }
 
     /* ── SERVIZI ── */
@@ -767,10 +770,6 @@
     </div>
     <div class="hero-right">
       <img src="images/montanara.jpg" alt="Raffaella in the kitchen" class="hero-photo" />
-      <div class="photo-placeholder">
-        <span class="ph-icon">📸</span>
-        <span class="ph-label">hero photo<br/>e.g. hero.jpg<br/>portrait format (4:5)</span>
-      </div>
     </div>
   </section>
 
@@ -800,7 +799,7 @@
           </div>
         </div>
         <div class="storia-photo-secondary">
-          <img src="catering.jpg" alt="Momo Cooking workshop" />
+          <img src="images/gallery-1.jpg" alt="Momo Cooking workshop" />
           <div class="photo-placeholder" style="min-height:160px;">
             <span class="ph-icon">📸</span>
             <span class="ph-label">workshop detail<br/>e.g. workshop-detail.jpg</span>
@@ -860,7 +859,7 @@
     </div>
     <div class="galleria-grid">
       <div class="gal-item fade-up">
-        <img src="images/gallery-1.jpg" alt="" />
+        <img src="images/subr.jpg" alt="" />
         <div class="gal-ph">
           <span class="gal-ph-icon">📸</span>
           <span class="gal-ph-label">gallery-1.jpg — large landscape</span>
