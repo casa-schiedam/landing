@@ -309,11 +309,15 @@
       position: sticky;
       top: 100px;
     }
+
+    /* FIX: foto di Raffa — max-width aggiunto */
     .storia-photo-main {
       aspect-ratio: 4/5;
       overflow: hidden;
       border-radius: 2px;
+      max-width: 340px;
     }
+
     .storia-photo-main img,
     .storia-photo-secondary img {
       width: 100%;
@@ -663,16 +667,17 @@
       color: rgba(184,166,138,0.5);
     }
 
-    /* ── ANIMATIONS ── */
+    /* ── ANIMATIONS — FIX: più veloci, will-change per smoothness ── */
     .fade-up {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transform: translateY(16px);
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+      will-change: opacity, transform;
     }
     .fade-up.visible { opacity: 1; transform: none; }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -687,7 +692,7 @@
 
       .storia-inner { grid-template-columns: 1fr; gap: 3rem; }
       .storia-visuals { position: static; flex-direction: row; }
-      .storia-photo-main { flex: 1; }
+      .storia-photo-main { flex: 1; max-width: 100%; }
       .storia-photo-secondary { flex: 0.6; margin-left: 0; }
 
       .servizi-grid { grid-template-columns: 1fr; }
@@ -761,7 +766,6 @@
       </div>
     </div>
     <div class="hero-right">
-      <!-- HERO PHOTO: replace src with your file, e.g. hero.jpg (portrait, 4:5 or taller) -->
       <img src="images/montanara.jpg" alt="Raffaella in the kitchen" class="hero-photo" />
       <div class="photo-placeholder">
         <span class="ph-icon">📸</span>
@@ -789,7 +793,6 @@
       </div>
       <div class="storia-visuals fade-up">
         <div class="storia-photo-main">
-          <!-- MAIN STORY PHOTO: portrait of Raffaella, portrait format (4:5) -->
           <img src="images/raffa.jpg" alt="Raffaella" />
           <div class="photo-placeholder" style="min-height:400px;">
             <span class="ph-icon">📸</span>
@@ -797,7 +800,6 @@
           </div>
         </div>
         <div class="storia-photo-secondary">
-          <!-- SECONDARY STORY PHOTO: workshop moment, hands in dough, detail -->
           <img src="catering.jpg" alt="Momo Cooking workshop" />
           <div class="photo-placeholder" style="min-height:160px;">
             <span class="ph-icon">📸</span>
@@ -816,7 +818,6 @@
     </div>
     <div class="servizi-grid">
       <div class="servizio-card fade-up">
-        <!-- WORKSHOP PHOTO: people making pasta, hands in flour, warm atmosphere -->
         <img src="images/workshops2.jpg" alt="Cooking workshops" />
         <div class="servizio-ph"><span class="servizio-ph-label">workshop photo<br/>e.g. workshop.jpg</span></div>
         <div class="servizio-overlay">
@@ -825,7 +826,6 @@
         </div>
       </div>
       <div class="servizio-card fade-up">
-        <!-- PRIVATE DINNER PHOTO: laid table, candlelight, evening atmosphere -->
         <img src="images/cene.jpg" alt="Private dinners">
         <div class="servizio-ph"><span class="servizio-ph-label">private dinner photo<br/>e.g. private-dinner.jpg</span></div>
         <div class="servizio-overlay">
@@ -834,7 +834,6 @@
         </div>
       </div>
       <div class="servizio-card fade-up">
-        <!-- BISTRO PHOTO: Italian breakfast, coffee, cornetto, bright morning -->
         <img src="images/sbriciolata.jpg" alt="Everyday bistro" />
         <div class="servizio-ph"><span class="servizio-ph-label">bistro photo<br/>e.g. bistro.jpg</span></div>
         <div class="servizio-overlay">
@@ -843,7 +842,6 @@
         </div>
       </div>
       <div class="servizio-card fade-up">
-        <!-- SHOP/PRODUCTS PHOTO: jars, dried pasta, selected ingredients, warm colours -->
         <img src="images/products.jpeg" alt="Shop & products" />
         <div class="servizio-ph"><span class="servizio-ph-label">products photo<br/>e.g. products.jpg</span></div>
         <div class="servizio-overlay">
@@ -862,7 +860,6 @@
     </div>
     <div class="galleria-grid">
       <div class="gal-item fade-up">
-        <!-- GALLERY PHOTO 1 (large, landscape): group at the table, workshop in progress -->
         <img src="images/gallery-1.jpg" alt="" />
         <div class="gal-ph">
           <span class="gal-ph-icon">📸</span>
@@ -870,7 +867,6 @@
         </div>
       </div>
       <div class="gal-item fade-up">
-        <!-- GALLERY PHOTO 2 (tall portrait): Raffaella teaching/cooking -->
         <img src="images/gallery-2.jpg" alt="" />
         <div class="gal-ph">
           <span class="gal-ph-icon">📸</span>
@@ -878,7 +874,6 @@
         </div>
       </div>
       <div class="gal-item fade-up">
-        <!-- GALLERY PHOTO 3 (square): food detail, pasta, finished dish -->
         <img src="images/gallery-3.jpg" alt="" />
         <div class="gal-ph">
           <span class="gal-ph-icon">📸</span>
@@ -886,7 +881,6 @@
         </div>
       </div>
       <div class="gal-item fade-up">
-        <!-- GALLERY PHOTO 4 (square): convivial moment, smiles, table -->
         <img src="images/gallery-4.jpg" alt="" />
         <div class="gal-ph">
           <span class="gal-ph-icon">📸</span>
@@ -1010,10 +1004,10 @@
       });
     });
 
-    // Scroll fade-in
+    // Scroll fade-in — FIX: threshold abbassato a 0.05 per smoothness
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     // Progress bar animation on load
