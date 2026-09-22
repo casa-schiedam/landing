@@ -25,8 +25,15 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="about.html">About Raffa</a></li>
-      <li><a href="horeca.html">Horeca</a></li>
+      <li class="has-submenu">
+        <a href="about.html">About Raffa</a>
+        <ul class="submenu">
+          <li><a href="about.html#momo">Momo Cooking</a></li>
+          <li><a href="about.html#melting-pot">Melting Pot</a></li>
+          <li><a href="about.html#casa">CASA</a></li>
+        </ul>
+      </li>
+      <li><a href="catering.html">Catering</a></li>
       <li><a href="workshops.html">Workshops</a></li>
       <li><a href="private-events.html">Private Events</a></li>
       <li><a href="events.html">Events</a></li>
@@ -62,70 +69,11 @@
       </p>
     </div>
     <div class="wrap listing">
-      <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" /></div>
-        <div>
-          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Fresh pasta</span>
-          <h3 class="listing-item__name">Fresh Pasta Lab</h3>
-          <p class="listing-item__desc">
-            Flour, eggs, a table and your hands. Tagliatelle, ravioli and orecchiette from scratch,
-            plus the two sauces that make them worth the effort. The one to start with.
-          </p>
-        </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Fresh%20Pasta%20Lab">Book this</a>
-        </div>
-      </article>
-
-      <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/montanara2.jpg" alt="Neapolitan pizza dough and fried montanara" /></div>
-        <div>
-          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Pizza</span>
-          <h3 class="listing-item__name">Pizza &amp; Montanara Night</h3>
-          <p class="listing-item__desc">
-            Naples-style dough, handled the way it is handled in Naples &mdash; and the montanara,
-            the fried pizza that tourists never find out about. Loud, messy, extremely good.
-          </p>
-        </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Pizza%20%26%20Montanara%20Night">Book this</a>
-        </div>
-      </article>
-
-      <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/subr.jpg" alt="A Neapolitan Sunday table" /></div>
-        <div>
-          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Regional cuisine</span>
-          <h3 class="listing-item__name">The Sunday Ragù</h3>
-          <p class="listing-item__desc">
-            The long one. Neapolitan ragù the way it is actually made &mdash; started early, stirred often
-            &mdash; with the sides and the sweet that go around it. You will not need dinner.
-          </p>
-        </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=The%20Sunday%20Rag%C3%B9">Book this</a>
-        </div>
-      </article>
-
-      <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/sbriciolata.jpg" alt="A family baking together" /></div>
-        <div>
-          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Family</span>
-          <h3 class="listing-item__name">Family Workshop</h3>
-          <p class="listing-item__desc">
-            For one adult and one child, age six and up. Short, sweet and hands-on: something rolled,
-            something baked, something eaten immediately.
-          </p>
-        </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Family%20Workshop">Book this</a>
-        </div>
-      </article>
-
-      <article class="listing-item fade-up">
+      <article class="listing-item listing-item--featured fade-up">
+        <span class="featured-badge">Featured</span>
         <div class="listing-item__media"><img src="images/gallery-3.jpg" alt="Dishes from different world cuisines" /></div>
-        <div>
-          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Melting Pot</span>
+        <div class="listing-item__body">
+          <span class="tag tag--light" style="margin-bottom:0.7rem;display:inline-block;">Melting Pot</span>
           <h3 class="listing-item__name">Melting Pot</h3>
           <p class="listing-item__desc">
             Not Italian. A cook from somewhere else takes the worktop and teaches the dish they grew
@@ -133,24 +81,84 @@
             Runs at Rose Molen in Delft (and provisionally at Ferm).
             <a href="about.html#melting-pot" style="color:var(--terracotta);white-space:nowrap;">Read more &rarr;</a>
           </p>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Melting%20Pot">Book this</a>
+          </div>
         </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Melting%20Pot">Book this</a>
+      </article>
+
+      <article class="listing-item fade-up">
+        <div class="listing-item__media"><img src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" /></div>
+        <div class="listing-item__body">
+          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Fresh pasta</span>
+          <h3 class="listing-item__name">Fresh Pasta Lab</h3>
+          <p class="listing-item__desc">
+            Flour, eggs, a table and your hands. Tagliatelle, ravioli and orecchiette from scratch,
+            plus the two sauces that make them worth the effort. The one to start with.
+          </p>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Fresh%20Pasta%20Lab">Book this</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing-item fade-up">
+        <div class="listing-item__media"><img src="images/montanara2.jpg" alt="Neapolitan pizza dough and fried montanara" /></div>
+        <div class="listing-item__body">
+          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Pizza</span>
+          <h3 class="listing-item__name">Pizza &amp; Montanara Night</h3>
+          <p class="listing-item__desc">
+            Naples-style dough, handled the way it is handled in Naples &mdash; and the montanara,
+            the fried pizza that tourists never find out about. Loud, messy, extremely good.
+          </p>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Pizza%20%26%20Montanara%20Night">Book this</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing-item fade-up">
+        <div class="listing-item__media"><img src="images/subr.jpg" alt="A Neapolitan Sunday table" /></div>
+        <div class="listing-item__body">
+          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Regional cuisine</span>
+          <h3 class="listing-item__name">The Sunday Ragù</h3>
+          <p class="listing-item__desc">
+            The long one. Neapolitan ragù the way it is actually made &mdash; started early, stirred often
+            &mdash; with the sides and the sweet that go around it. You will not need dinner.
+          </p>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=The%20Sunday%20Rag%C3%B9">Book this</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing-item fade-up">
+        <div class="listing-item__media"><img src="images/sbriciolata.jpg" alt="A family baking together" /></div>
+        <div class="listing-item__body">
+          <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Family</span>
+          <h3 class="listing-item__name">Family Workshop</h3>
+          <p class="listing-item__desc">
+            For one adult and one child, age six and up. Short, sweet and hands-on: something rolled,
+            something baked, something eaten immediately.
+          </p>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Family%20Workshop">Book this</a>
+          </div>
         </div>
       </article>
 
       <article class="listing-item fade-up">
         <div class="listing-item__media"><img src="images/gallery-4.jpg" alt="A team cooking together" /></div>
-        <div>
+        <div class="listing-item__body">
           <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Private &amp; team</span>
           <h3 class="listing-item__name">Private &amp; team workshops</h3>
           <p class="listing-item__desc">
             Book the whole kitchen: a birthday, a hen party, a team day, a client evening.
             Any of the workshops above, adapted to your group.
           </p>
-        </div>
-        <div class="listing-item__action">
-          <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Private%20%2F%20team%20workshop">Book this</a>
+          <div class="listing-item__action">
+            <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Private%20%2F%20team%20workshop">Book this</a>
+          </div>
         </div>
       </article>
     </div>
@@ -286,14 +294,14 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella cooks across Schiedam, Delft and Rotterdam: horeca catering, cooking workshops
+          Raffaella cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
           and lessons, and private events. CASA is the fixed home she's building for all of it.
         </p>
       </div>
       <div>
         <div class="footer-col__title">Book</div>
         <ul class="footer-links">
-          <li><a href="horeca.html">Horeca</a></li>
+          <li><a href="catering.html">Catering</a></li>
           <li><a href="workshops.html">Workshops &amp; lessons</a></li>
           <li><a href="private-events.html">Private events</a></li>
           <li><a href="contact.html">Ask a question</a></li>

@@ -38,8 +38,11 @@
   }
 
   /* ── MARK THE CURRENT PAGE IN THE NAV ──────────────────────────────── */
+  // Scoped to top-level nav links only (.nav-links > li > a), so the three
+  // links inside a submenu (About Raffa > Momo / Melting Pot / CASA) don't
+  // all light up together just because they share about.html's filename.
   var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.nav-links a[href]').forEach(function (a) {
+  document.querySelectorAll('.nav-links > li > a[href]').forEach(function (a) {
     var target = a.getAttribute('href').split('#')[0].split('?')[0].toLowerCase();
     if (target && target === here) a.classList.add('is-current');
   });

@@ -1,6 +1,6 @@
 # CASA — website
 
-Website for Raffaella / CASA (Schiedam, NL): horeca catering, cooking
+Website for Raffaella / CASA (Schiedam, NL): catering, cooking
 workshops & lessons, and private events, plus the crowdfunding campaign for
 a permanent space. No build step, no framework — plain HTML, one stylesheet,
 two small scripts. Deploys to GitHub Pages automatically on every push to
@@ -53,7 +53,7 @@ That includes:
   Both link out to that page since booking happens there, not on this site.
   Past events are still an honest empty state — add real ones as they happen.
 
-Workshop/private-event/horeca **durations and group sizes** in the listing
+Workshop/private-event/catering **durations and group sizes** in the listing
 pages are reasonable-sounding placeholders too, not confirmed numbers — check
 them. The four photos on `events.html`'s "Hosting & managing events" cards
 (weddings / tastings / product launches / other) are generic food shots, not
@@ -104,17 +104,17 @@ as its next sibling too, or nothing will show once it empties out.
 |---|---|
 | `index.html` | Home — Raffaella + CTAs, 4 event cards, what I offer, contact |
 | `about.html` | About Raffa — story, experience, ambition, my projects (Momo, Melting Pot, CASA) |
-| `horeca.html` | Horeca catering — four example offers, no prices, contact CTA |
+| `catering.html` | Four example catering offers, no prices, contact CTA |
 | `workshops.html` | Workshop cards (incl. Melting Pot), how to book, upcoming dates |
 | `private-events.html` | Aperitivo, lunch &amp; dinner — for small groups or for events |
 | `events.html` | Upcoming public events, past events, past workshops, and hosting/managing events for others (weddings, tastings, product launches) |
 | `contact.html` | The one form everything books through |
 | `support.html` | The crowdfunding campaign and rewards (linked from About &amp; the footer, not the main nav) |
 
-`horeca.html` was `catering.html` and `private-events.html` was
-`private-chef.html` before this round of renames — nothing still links to
-the old filenames, but if you have the old URLs bookmarked or shared
-anywhere outside this repo, update them.
+`private-events.html` was `private-chef.html` before an earlier round of
+renames (it went through a brief `horeca.html`/`private-chef.html` detour
+too, since reverted) — nothing still links to the old filenames, but if you
+have old URLs bookmarked or shared anywhere outside this repo, update them.
 
 ## Structure
 
@@ -126,13 +126,22 @@ images/               photographs
 other_images/         extra photographs not yet used on the site
 ```
 
+The "About Raffa" nav item has a dropdown submenu (Momo Cooking / Melting
+Pot / CASA — the three `about.html#momo` / `#melting-pot` / `#casa` anchors).
+On desktop it opens on hover; on mobile, where hover doesn't exist, it's
+just always expanded inline under "About Raffa" in the full-screen menu. Add
+a fourth project by adding a `<li><a href="about.html#id">Name</a></li>`
+inside `<ul class="submenu">`, plus a matching `id="id"` on that project's
+`.project-card` in about.html. The submenu only lives in the nav — the
+footer keeps a plain "About Raffa" link, on purpose.
+
 The nav and footer are written into each page. If you change them, change all
 eight files.
 
 ## How booking works
 
 There's no per-page booking form. Every "Book this" / "Contact me" button on
-`horeca.html`, `workshops.html`, `private-events.html` and the "Hosting &
+`catering.html`, `workshops.html`, `private-events.html` and the "Hosting &
 managing events" cards on `events.html` links to
 `contact.html?subject_topic=…&detail=…`, which pre-fills the dropdown and the
 "specific workshop / event / package" field on the one contact form. If you
