@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Raffaella — CASA, Schiedam</title>
+  <meta name="description" content="Get in touch with Raffaella about horeca catering, cooking workshops, private lessons, private events or hosting your own event in Schiedam, Delft and Rotterdam." />
+  <meta property="og:title" content="Contact Raffaella — CASA, Schiedam" />
+  <meta property="og:description" content="Get in touch with Raffaella about horeca catering, cooking workshops, private lessons, private events or hosting your own event in Schiedam, Delft and Rotterdam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/IMG_20190323_135333.jpg" />
+  <meta name="theme-color" content="#C1674A" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">CAS<span>A</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html">About Raffa</a></li>
+      <li><a href="horeca.html">Horeca</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="private-events.html">Private Events</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <img class="page-hero__bg" src="images/IMG_20190323_135333.jpg" alt="" aria-hidden="true" />
+    <div class="page-hero__inner">
+      <span class="section-label">Contact</span>
+      <h1 class="page-hero__title">Tell me what<br />you have in mind.<br /><em>I read everything myself.</em></h1>
+      <p class="page-hero__sub">
+        One form for horeca catering, workshops, private lessons, private events, hosting your own
+        event, or just a question. Say what you're after in the dropdown and I'll take it from there.
+      </p>
+    </div>
+  </header>
+
+  <!-- CONTACT FORM -->
+  <section class="section section--cream">
+    <div class="wrap form-layout">
+      <form class="form-card fade-up" data-casa-form="Enquiry" novalidate>
+        <div class="form-grid">
+          <div class="field field--full">
+            <label for="g-subject">What's this about <span class="req">*</span></label>
+            <select id="g-subject" name="subject_topic" required>
+              <option value="">Choose one…</option>
+              <option value="Horeca">Horeca (catering)</option>
+              <option value="Workshops &amp; cooking lessons">Workshops &amp; cooking lessons</option>
+              <option value="Private events">Private events (aperitivo, lunch or dinner)</option>
+              <option value="Hosting an event">Hosting an event (wedding, tasting, product launch…)</option>
+              <option value="Business / partnership">Business or partnership</option>
+              <option value="Press &amp; media">Press &amp; media</option>
+              <option value="The crowdfunding campaign">The crowdfunding campaign</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="g-detail">Specific workshop / event / package</label>
+            <input type="text" id="g-detail" name="detail" placeholder="e.g. Melting Pot, aperitivo for 8…" />
+          </div>
+
+          <div class="field">
+            <label for="g-name">Your name <span class="req">*</span></label>
+            <input type="text" id="g-name" name="name" autocomplete="name" placeholder="First and last name" required />
+          </div>
+          <div class="field">
+            <label for="g-email">Email <span class="req">*</span></label>
+            <input type="email" id="g-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="g-phone">Phone</label>
+            <input type="tel" id="g-phone" name="phone" autocomplete="tel" placeholder="+31 …" />
+          </div>
+          <div class="field">
+            <label for="g-company">Company / organisation</label>
+            <input type="text" id="g-company" name="company" autocomplete="organization" />
+          </div>
+
+          <div class="field">
+            <label for="g-date">Preferred date</label>
+            <input type="date" id="g-date" name="preferred_date" />
+          </div>
+          <div class="field">
+            <label for="g-people">Number of people</label>
+            <input type="number" id="g-people" name="people" min="1" max="1000" placeholder="e.g. 8" />
+          </div>
+
+          <div class="field field--full">
+            <label for="g-msg">Your message <span class="req">*</span></label>
+            <textarea id="g-msg" name="message" placeholder="Tell Raffaella what you have in mind: the occasion, allergies, anything that matters…" required></textarea>
+          </div>
+
+          <div class="field field--full checkbox-row">
+            <input type="checkbox" id="g-consent" name="consent" value="yes" required />
+            <label for="g-consent">Raffaella may use my details to answer this message. <span class="req">*</span></label>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="g-hp">Leave this empty</label>
+            <input type="text" id="g-hp" name="casa_hp" tabindex="-1" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn-primary">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="fade-up">
+        <h3 class="form-aside__title">Direct</h3>
+        <ul class="detail-list">
+          <li>
+            <div class="detail-list__label">Email</div>
+            <div class="detail-list__value"><a href="#" data-contact-email>info@casa-schiedam.nl</a></div>
+          </li>
+          <li data-optional>
+            <div class="detail-list__label">Phone</div>
+            <div class="detail-list__value"><a href="#" data-contact-phone>&nbsp;</a></div>
+          </li>
+          <li data-optional>
+            <div class="detail-list__label">WhatsApp</div>
+            <div class="detail-list__value"><a href="#" data-contact-whatsapp target="_blank" rel="noopener">Message on WhatsApp</a></div>
+          </li>
+          <li>
+            <div class="detail-list__label">Instagram</div>
+            <div class="detail-list__value"><a href="#" data-contact-instagram data-contact-instagram-text target="_blank" rel="noopener">@casa.schiedam</a></div>
+          </li>
+          <li>
+            <div class="detail-list__label">Based in</div>
+            <div class="detail-list__value">Schiedam, The Netherlands<br />Working across Rotterdam, Delft, Vlaardingen and The Hague</div>
+          </li>
+          <li>
+            <div class="detail-list__label">Reply time</div>
+            <div class="detail-list__value">Usually <span data-reply-time>within 2 working days</span></div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- QUICK ROUTES -->
+  <section class="section section--white">
+    <div class="wrap section-head section-head--center fade-up">
+      <span class="section-label">Browse first?</span>
+      <h2 class="section-title">See what's on offer<br /><em>before you write.</em></h2>
+    </div>
+    <div class="wrap">
+      <div class="offer-grid">
+        <a class="offer-card fade-up" href="horeca.html">
+          <img src="images/catering.jpg" alt="Horeca catering" />
+          <div class="offer-card__overlay">
+            <div class="offer-card__name">Horeca</div>
+            <p class="offer-card__desc">Offices, receptions, weddings and parties.</p>
+            <span class="offer-card__link">See the offers &rarr;</span>
+          </div>
+        </a>
+        <a class="offer-card fade-up" href="workshops.html">
+          <img src="images/workshops2.jpg" alt="Workshops" />
+          <div class="offer-card__overlay">
+            <div class="offer-card__name">Workshops &amp; lessons</div>
+            <p class="offer-card__desc">Fresh pasta, pizza, Melting Pot, private lessons.</p>
+            <span class="offer-card__link">See the workshops &rarr;</span>
+          </div>
+        </a>
+        <a class="offer-card fade-up" href="private-events.html">
+          <img src="images/cene.jpg" alt="Private events" />
+          <div class="offer-card__overlay">
+            <div class="offer-card__name">Private events</div>
+            <p class="offer-card__desc">Aperitivo, lunch or dinner, for your table or your event.</p>
+            <span class="offer-card__link">See the formats &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">CASA</div>
+        <p class="footer-blurb">
+          Raffaella cooks across Schiedam, Delft and Rotterdam: horeca catering, cooking workshops
+          and lessons, and private events. CASA is the fixed home she's building for all of it.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col__title">Book</div>
+        <ul class="footer-links">
+          <li><a href="horeca.html">Horeca</a></li>
+          <li><a href="workshops.html">Workshops &amp; lessons</a></li>
+          <li><a href="private-events.html">Private events</a></li>
+          <li><a href="contact.html">Ask a question</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col__title">CASA</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Raffa</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="support.html">Support the project</a></li>
+          <li><a href="#" data-contact-email>info@casa-schiedam.nl</a></li>
+          <li><a href="#" target="_blank" rel="noopener" data-contact-instagram data-contact-instagram-text>@casa.schiedam</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span data-year>2026</span> CASA &middot; Schiedam, NL</span>
+      <span class="footer-copy">Built with love, flour and a lot of noise.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

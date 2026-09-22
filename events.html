@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — CASA, Schiedam</title>
+  <meta name="description" content="Where to find Raffaella outside the kitchen: upcoming pop-up dinners, wine tastings and markets in and around Schiedam." />
+  <meta property="og:title" content="Events — CASA, Schiedam" />
+  <meta property="og:description" content="Where to find Raffaella outside the kitchen: upcoming pop-up dinners, wine tastings and markets in and around Schiedam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/subr.jpg" />
+  <meta name="theme-color" content="#C1674A" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">CAS<span>A</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html">About Raffa</a></li>
+      <li><a href="horeca.html">Horeca</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="private-events.html">Private Events</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <img class="page-hero__bg" src="images/subr.jpg" alt="" aria-hidden="true" />
+    <div class="page-hero__inner">
+      <span class="section-label">Events</span>
+      <h1 class="page-hero__title">Where to find<br />Raffaella<br /><em>outside the kitchen.</em></h1>
+      <p class="page-hero__sub">
+        Pop-up dinners, wine tastings, markets, festivals &mdash; the public dates you don't need a
+        private booking to join. Follow <a href="#" data-contact-instagram data-contact-instagram-text target="_blank" rel="noopener" style="color:var(--terracotta-light)">@casa.schiedam</a>
+        for the moment a new one is announced.
+      </p>
+    </div>
+  </header>
+
+  <!--
+    ══════════════════════════════════════════════════════════════════════
+    HOW TO ADD AN EVENT
+    Copy one .schedule-item block (from the Upcoming section below, or from
+    workshops.html's schedule) and edit: day, month, category tag(s), name,
+    place, and the "detail" value in the booking link. Move it to "Past
+    events" once the date has gone, by adding the class
+    schedule-item--past to the outer div.
+    ══════════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- UPCOMING EVENTS -->
+  <section class="section section--cream">
+    <div class="wrap section-head fade-up">
+      <span class="section-label">Upcoming &amp; where to find me</span>
+      <h2 class="section-title">The next dates<br /><em>open to everyone.</em></h2>
+      <p class="section-intro">
+        Both dates below are the same workshop, hosted with Valentina at Rose Molen, Delft &mdash; a
+        historic mill with its own kitchen. Booking happens directly on their site, not through this one.
+      </p>
+    </div>
+    <div class="wrap">
+      <div class="needs-content fade-up">
+        <strong>Raffa —</strong> one real date is listed below (pasta making with you and Valentina at
+        Molen de Roos). Add any other public dates the same way — copy a <code>.schedule-item</code>
+        block (see the comment above this section) and point the CTA at wherever people actually book it.
+      </div>
+      <div class="schedule-list fade-up">
+        <div class="schedule-item" data-date="2026-10-10">
+          <div class="schedule-item__date"><span class="day">10</span><span class="month">Oct '26</span></div>
+          <div class="schedule-item__body">
+            <div class="schedule-item__tags"><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
+            <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
+            <p class="schedule-item__place">📍 Rose Molen, Delft &mdash; the former millers' living room</p>
+            <p class="schedule-item__place" style="margin-top:0.3rem;">🕒 4:00&nbsp;pm · about 3 hours · €125 p.p. · max 10 seats</p>
+          </div>
+          <div class="schedule-item__action">
+            <a class="btn-ghost" href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener">Book on Bij de Roos &rarr;</a>
+          </div>
+        </div>
+        <div class="schedule-item" data-date="2026-11-15">
+          <div class="schedule-item__date"><span class="day">15</span><span class="month">Nov '26</span></div>
+          <div class="schedule-item__body">
+            <div class="schedule-item__tags"><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
+            <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
+            <p class="schedule-item__place">📍 Rose Molen, Delft &mdash; the former millers' living room</p>
+            <p class="schedule-item__place" style="margin-top:0.3rem;">🕒 12:00&nbsp;pm · about 3 hours · €125 p.p. · max 10 seats</p>
+          </div>
+          <div class="schedule-item__action">
+            <a class="btn-ghost" href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener">Book on Bij de Roos &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <!-- shown automatically once every dated item above has passed — see site.js -->
+      <div class="schedule-empty fade-up" data-schedule-empty-for hidden>
+        Nothing public on the calendar right now. New dates are always announced on
+        <a href="#" data-contact-instagram data-contact-instagram-text target="_blank" rel="noopener" style="color:var(--terracotta)">Instagram</a>
+        first — or <a href="contact.html?subject_topic=The%20crowdfunding%20campaign" style="color:var(--terracotta)">get in touch</a>
+        to be told directly when the next one is set.
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS -->
+  <section class="section section--white">
+    <div class="wrap section-head fade-up">
+      <span class="section-label">Past events</span>
+      <h2 class="section-title">Where Raffaella's<br /><em>already been.</em></h2>
+    </div>
+    <div class="wrap">
+      <div class="needs-content fade-up">
+        <strong>Raffa —</strong> add the markets, pop-ups and tastings you've already done here,
+        same format as above, with <code>schedule-item--past</code> added to the item's class.
+      </div>
+      <div class="schedule-empty fade-up">
+        Past events will be listed here once added.
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST WORKSHOPS -->
+  <section class="section section--cream">
+    <div class="wrap section-head fade-up">
+      <span class="section-label">Past workshops</span>
+      <h2 class="section-title">Four years,<br /><em>a lot of flour.</em></h2>
+      <p class="section-intro">
+        Since 2021, Momo Cooking's workshops have run in kitchens across Schiedam and Rotterdam.
+        <span class="needs-content" style="display:block;margin-top:0.8rem;"><strong>Raffa —</strong> if you
+        want specific past workshop dates listed here (rather than this general summary), add them the
+        same way as the upcoming list on the <a href="workshops.html#schedule">workshops page</a>.</span>
+      </p>
+    </div>
+    <div class="wrap galleria-grid">
+      <div class="gal-item fade-up"><img src="images/gallery-1.jpg" alt="A past workshop" /></div>
+      <div class="gal-item fade-up"><img src="images/gallery-2.jpg" alt="Hands working dough" /></div>
+      <div class="gal-item fade-up"><img src="images/gallery-3.jpg" alt="A finished dish from a past workshop" /></div>
+      <div class="gal-item fade-up"><img src="images/gallery-4.jpg" alt="A past workshop mid-session" /></div>
+    </div>
+  </section>
+
+  <!-- HOSTING & MANAGING EVENTS -->
+  <section class="section section--dark">
+    <div class="wrap section-head fade-up">
+      <span class="section-label">Hosting &amp; managing events</span>
+      <h2 class="section-title">Or let Raffaella<br /><em style="color:var(--terracotta-light)">run yours.</em></h2>
+      <p class="section-intro" style="color:var(--warm-light);">
+        Beyond her own dates, Raffaella hosts and manages events for others too &mdash; food, format
+        and (where needed) the run of the evening itself.
+      </p>
+    </div>
+    <div class="wrap service-grid">
+      <article class="service-card fade-up">
+        <div class="service-card__media"><img src="images/1617822250021.jpg" alt="An elegant tart served at a celebration" /></div>
+        <div>
+          <h3 class="service-card__name">Weddings</h3>
+          <p class="service-card__desc">Food, and as much or as little of the running-of-the-day as you want handed over.</p>
+          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Wedding" class="service-card__cta">Contact me &rarr;</a>
+        </div>
+      </article>
+      <article class="service-card fade-up">
+        <div class="service-card__media"><img src="images/IMG-20201124-WA0000.jpg" alt="A plated tasting of chocolate-dipped figs" /></div>
+        <div>
+          <h3 class="service-card__name">Tastings</h3>
+          <p class="service-card__desc">A guided tasting menu for a group, a client evening, or a private occasion.</p>
+          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Tasting" class="service-card__cta">Contact me &rarr;</a>
+        </div>
+      </article>
+      <article class="service-card fade-up">
+        <div class="service-card__media"><img src="images/1618262524160.jpg" alt="A styled focaccia, plated for a launch event" /></div>
+        <div>
+          <h3 class="service-card__name">Product launches</h3>
+          <p class="service-card__desc">Food that fits the brand and the room &mdash; standing or seated, styled to be photographed.</p>
+          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Product%20launch" class="service-card__cta">Contact me &rarr;</a>
+        </div>
+      </article>
+      <article class="service-card fade-up">
+        <div class="service-card__media"><img src="images/IMG_20200512_124740.jpg" alt="An elegantly plated seafood pasta dish" /></div>
+        <div>
+          <h3 class="service-card__name">Other</h3>
+          <p class="service-card__desc">Doesn't fit a category above? Describe it and Raffaella will tell you what's possible.</p>
+          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Other" class="service-card__cta">Contact me &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="cta-final">
+    <span class="section-label">Don't want to wait?</span>
+    <h2 class="section-title">Book your own date<br /><em>instead of waiting for hers.</em></h2>
+    <p>Private and team workshops, dinners and catering run whenever suits you.</p>
+    <div class="btn-row">
+      <a href="workshops.html" class="btn-primary">See the workshops &rarr;</a>
+      <a href="contact.html" class="btn-ghost btn-ghost--light">Contact me</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">CASA</div>
+        <p class="footer-blurb">
+          Raffaella cooks across Schiedam, Delft and Rotterdam: horeca catering, cooking workshops
+          and lessons, and private events. CASA is the fixed home she's building for all of it.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col__title">Book</div>
+        <ul class="footer-links">
+          <li><a href="horeca.html">Horeca</a></li>
+          <li><a href="workshops.html">Workshops &amp; lessons</a></li>
+          <li><a href="private-events.html">Private events</a></li>
+          <li><a href="contact.html">Ask a question</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col__title">CASA</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Raffa</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="support.html">Support the project</a></li>
+          <li><a href="#" data-contact-email>info@casa-schiedam.nl</a></li>
+          <li><a href="#" target="_blank" rel="noopener" data-contact-instagram data-contact-instagram-text>@casa.schiedam</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span data-year>2026</span> CASA &middot; Schiedam, NL</span>
+      <span class="footer-copy">Built with love, flour and a lot of noise.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
