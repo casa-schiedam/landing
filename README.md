@@ -43,10 +43,12 @@ grep -rln "needs-content" *.html
 
 That includes:
 - **`about.html`** — real numbers for "Experience" (years cooking, roughly how
-  many workshops/events so far); and for the **Melting Pot** project card,
-  confirmation that **Ferm** is a real second venue (only Rose Molen in Delft
-  is confirmed) and how often it actually runs.
-- **`private-events.html`** — minimum group size for a small aperitivo / lunch / dinner.
+  many workshops/events so far); and for the **Melting Pot** row, confirmation
+  that **Ferm** is a real second venue (only Rose Molen in Delft is confirmed)
+  and how often it actually runs.
+- **`private-events.html`** — minimum group size for aperitivo / lunch /
+  dinner at home; and the "Events we've done" section (see below) — left
+  completely empty, on purpose, until you add real ones.
 - **`workshops.html`** and **`events.html`** — list the two real dates for
   "Pasta Making with Raffa & Vale" at Rose Molen, Delft (10 Oct and 15 Nov
   2026, sourced from [Bij de Roos's booking page](https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/)).
@@ -55,14 +57,26 @@ That includes:
 
 Workshop/private-event/catering **durations and group sizes** in the listing
 pages are reasonable-sounding placeholders too, not confirmed numbers — check
-them. The four photos on `events.html`'s "Hosting & managing events" cards
-(weddings / tastings / product launches / other) are generic food shots, not
-photos from real past events of that kind — swap them for real ones if you have them.
+them. The six photos on `private-events.html`'s "For your event" cards
+(reception / seated dinner / weddings / tastings / product launches / other)
+are generic food shots, not photos from real past events of that kind —
+swap them for real ones if you have them (or use the "Events we've done"
+section below for that, which is exactly what it's for).
+
+### "Events we've done" (`private-events.html`)
+
+Deliberately empty. Add two or three real weddings, tastings or launches
+you've actually done, each with a photo you have the client's permission to
+publish, and a short line (what it was, roughly how many guests). These are
+the references that sell the service, so they live here — not on the
+`events.html` agenda, which is kept as pure upcoming/past dates.
 
 ## Adding an event or workshop date
 
 `workshops.html` (upcoming workshops) and `events.html` (public appearances)
-both use a `.schedule-item` block:
+both use a `.schedule-item` block. **The first tag is the category** — keep
+it to one of `Workshop`, `Tasting`, `Pop-up`, `Market` (add more if a new
+kind of appearance comes up) so the agenda stays scannable as it grows:
 
 ```html
 <div class="schedule-item">
@@ -103,13 +117,17 @@ as its next sibling too, or nothing will show once it empties out.
 | File | Purpose |
 |---|---|
 | `index.html` | Home — Raffaella + CTAs, 4 event cards, what I offer, contact |
-| `about.html` | About Raffa — story, experience, ambition, my projects (Momo, Melting Pot, CASA) |
+| `about.html` | About Raffa — story, experience, ambition, my projects (Momo, Melting Pot, CASA — 3 full-width horizontal sections) |
 | `catering.html` | Four example catering offers, no prices, contact CTA |
-| `workshops.html` | Workshop cards (incl. Melting Pot), how to book, upcoming dates |
-| `private-events.html` | Aperitivo, lunch &amp; dinner — for small groups or for events |
-| `events.html` | Upcoming public events, past events, past workshops, and hosting/managing events for others (weddings, tastings, product launches) |
+| `workshops.html` | Workshop cards (3-col grid, Melting Pot first &amp; highlighted), how to book, upcoming dates |
+| `private-events.html` | Organized by scale: at your home for small groups (aperitivo/lunch/dinner) vs. for your event (reception, seated dinner, weddings, tastings, product launches, other) |
+| `events.html` | A pure agenda — upcoming public dates, past events, past workshops, and one line pointing to Private Events for anything bespoke |
 | `contact.html` | The one form everything books through |
 | `support.html` | The crowdfunding campaign and rewards (linked from About &amp; the footer, not the main nav) |
+
+The nav/footer link to `events.html` reads **"Agenda"**, not "Events" — kept
+deliberately distinct from "Private Events" in the nav, to stop the two from
+being confused. The filename didn't change, only the label.
 
 `private-events.html` was `private-chef.html` before an earlier round of
 renames (it went through a brief `horeca.html`/`private-chef.html` detour
@@ -122,9 +140,16 @@ have old URLs bookmarked or shared anywhere outside this repo, update them.
 assets/css/site.css   all styling (design tokens at the top)
 assets/js/config.js   ← the only file you need to edit for delivery/contact details
 assets/js/site.js     nav, scroll reveals, FAQ, campaign band, expired-date hiding, form submission
-images/               photographs
-other_images/         extra photographs not yet used on the site
+images/               photographs actually used by the site
 ```
+
+`other_images/` (extra, unused source photos) and `CASA_Crowdfunding_landing.Rproj`
+(an old RStudio project file) still exist locally but are gitignored — the
+GitHub Pages workflow publishes the *entire* repo (`path: '.'`), so anything
+tracked here is publicly served even if no page links to it. Both are kept
+on disk as a local reserve, just no longer shipped. If you want a photo from
+`other_images/`, move it into `images/`, reference it from a page, and it'll
+be tracked and deployed normally.
 
 The "About Raffa" nav item has a dropdown submenu (Momo Cooking / Melting
 Pot / CASA — the three `about.html#momo` / `#melting-pot` / `#casa` anchors).
@@ -132,23 +157,39 @@ On desktop it opens on hover; on mobile, where hover doesn't exist, it's
 just always expanded inline under "About Raffa" in the full-screen menu. Add
 a fourth project by adding a `<li><a href="about.html#id">Name</a></li>`
 inside `<ul class="submenu">`, plus a matching `id="id"` on that project's
-`.project-card` in about.html. The submenu only lives in the nav — the
-footer keeps a plain "About Raffa" link, on purpose.
+`.project-row` in about.html (the three projects are full-width horizontal
+sections, not a card grid — image left, text right). The submenu only lives
+in the nav — the footer keeps a plain "About Raffa" link, on purpose.
 
 The nav and footer are written into each page. If you change them, change all
 eight files.
 
+### Nav submenu ids vs. content ids
+
+The "About Raffa" submenu and the format anchors on `private-events.html`
+both work the same way: an `id` on a section/row, linked to from the nav or
+from a "Book this" card. If you rename or remove one, update both ends —
+the id on the target element, and the `href="page.html#id"` that points to
+it — or the link silently goes nowhere.
+
 ## How booking works
 
 There's no per-page booking form. Every "Book this" / "Contact me" button on
-`catering.html`, `workshops.html`, `private-events.html` and the "Hosting &
-managing events" cards on `events.html` links to
+`catering.html`, `workshops.html` and `private-events.html` links to
 `contact.html?subject_topic=…&detail=…`, which pre-fills the dropdown and the
 "specific workshop / event / package" field on the one contact form. If you
 rename something (a workshop, a format, a package) or add a subject to the
 `<select>`, keep the `subject_topic` values in those links matching the
 `<option>` values in `contact.html` exactly, or the prefill silently does
 nothing.
+
+**One topic covers all of Private Events, including the "for your event"
+formats** (weddings, tastings, product launches, etc.) — everything uses
+`subject_topic=Private%20events`, distinguished only by `detail=` (e.g.
+`detail=Wedding`, `detail=Tasting`). That was previously split across two
+topics (`Private events` and `Hosting an event`); it's consolidated now so
+a single mailbox filter on `subject_topic=Private%20events` catches
+everything, rather than needing two rules.
 
 ## Working on it locally
 
@@ -166,9 +207,6 @@ python3 -m http.server 8765    # then open http://localhost:8765
 
 ## Notes
 
-- `index 1.html` is a leftover copy of the very first version of this site
-  (the original crowdfunding-only landing page). It's still published at
-  `/index%201.html`. Delete it when you're sure you don't need it.
 - Open Graph images use relative paths. Once the real domain is known, make
   the `og:image` tags absolute (`https://…/images/…`) or link previews won't
   show the photo on most platforms.

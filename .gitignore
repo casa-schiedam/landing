@@ -4,3 +4,9 @@
 .httr-oauth
 .DS_Store
 .quarto
+*.Rproj
+
+# Raw/unused source photos — kept locally as a reserve, not shipped on the
+# live site (the Pages workflow publishes the whole repo, so anything
+# tracked here ends up publicly served even if no page links to it).
+other_images/

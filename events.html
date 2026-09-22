@@ -36,7 +36,7 @@
       <li><a href="catering.html">Catering</a></li>
       <li><a href="workshops.html">Workshops</a></li>
       <li><a href="private-events.html">Private Events</a></li>
-      <li><a href="events.html">Events</a></li>
+      <li><a href="events.html">Agenda</a></li>
       <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
@@ -63,6 +63,10 @@
     place, and the "detail" value in the booking link. Move it to "Past
     events" once the date has gone, by adding the class
     schedule-item--past to the outer div.
+
+    First tag = category. Keep to one of: Workshop, Tasting, Pop-up, Market
+    (add more here if a new kind of appearance comes up) — that's what
+    keeps this agenda scannable as it grows.
     ══════════════════════════════════════════════════════════════════════
   -->
 
@@ -86,7 +90,7 @@
         <div class="schedule-item" data-date="2026-10-10">
           <div class="schedule-item__date"><span class="day">10</span><span class="month">Oct '26</span></div>
           <div class="schedule-item__body">
-            <div class="schedule-item__tags"><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
+            <div class="schedule-item__tags"><span class="tag tag--muted">Workshop</span><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
             <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
             <p class="schedule-item__place">📍 Rose Molen, Delft &mdash; the former millers' living room</p>
             <p class="schedule-item__place" style="margin-top:0.3rem;">🕒 4:00&nbsp;pm · about 3 hours · €125 p.p. · max 10 seats</p>
@@ -98,7 +102,7 @@
         <div class="schedule-item" data-date="2026-11-15">
           <div class="schedule-item__date"><span class="day">15</span><span class="month">Nov '26</span></div>
           <div class="schedule-item__body">
-            <div class="schedule-item__tags"><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
+            <div class="schedule-item__tags"><span class="tag tag--muted">Workshop</span><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
             <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
             <p class="schedule-item__place">📍 Rose Molen, Delft &mdash; the former millers' living room</p>
             <p class="schedule-item__place" style="margin-top:0.3rem;">🕒 12:00&nbsp;pm · about 3 hours · €125 p.p. · max 10 seats</p>
@@ -155,49 +159,13 @@
     </div>
   </section>
 
-  <!-- HOSTING & MANAGING EVENTS -->
-  <section class="section section--dark">
-    <div class="wrap section-head fade-up">
-      <span class="section-label">Hosting &amp; managing events</span>
-      <h2 class="section-title">Or let Raffaella<br /><em style="color:var(--terracotta-light)">run yours.</em></h2>
-      <p class="section-intro" style="color:var(--warm-light);">
-        Beyond her own dates, Raffaella hosts and manages events for others too &mdash; food, format
-        and (where needed) the run of the evening itself.
+  <!-- WANT YOUR OWN EVENT? -->
+  <section class="section section--dark section--tight">
+    <div class="wrap fade-up" style="text-align:center;">
+      <p class="section-title" style="margin-bottom:0;">
+        Want an event all your own?
+        <a href="private-events.html" style="color:var(--terracotta-light);">&rarr; Private events</a>
       </p>
-    </div>
-    <div class="wrap service-grid">
-      <article class="service-card fade-up">
-        <div class="service-card__media"><img src="images/1617822250021.jpg" alt="An elegant tart served at a celebration" /></div>
-        <div>
-          <h3 class="service-card__name">Weddings</h3>
-          <p class="service-card__desc">Food, and as much or as little of the running-of-the-day as you want handed over.</p>
-          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Wedding" class="service-card__cta">Contact me &rarr;</a>
-        </div>
-      </article>
-      <article class="service-card fade-up">
-        <div class="service-card__media"><img src="images/IMG-20201124-WA0000.jpg" alt="A plated tasting of chocolate-dipped figs" /></div>
-        <div>
-          <h3 class="service-card__name">Tastings</h3>
-          <p class="service-card__desc">A guided tasting menu for a group, a client evening, or a private occasion.</p>
-          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Tasting" class="service-card__cta">Contact me &rarr;</a>
-        </div>
-      </article>
-      <article class="service-card fade-up">
-        <div class="service-card__media"><img src="images/1618262524160.jpg" alt="A styled focaccia, plated for a launch event" /></div>
-        <div>
-          <h3 class="service-card__name">Product launches</h3>
-          <p class="service-card__desc">Food that fits the brand and the room &mdash; standing or seated, styled to be photographed.</p>
-          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Product%20launch" class="service-card__cta">Contact me &rarr;</a>
-        </div>
-      </article>
-      <article class="service-card fade-up">
-        <div class="service-card__media"><img src="images/IMG_20200512_124740.jpg" alt="An elegantly plated seafood pasta dish" /></div>
-        <div>
-          <h3 class="service-card__name">Other</h3>
-          <p class="service-card__desc">Doesn't fit a category above? Describe it and Raffaella will tell you what's possible.</p>
-          <a href="contact.html?subject_topic=Hosting%20an%20event&amp;detail=Other" class="service-card__cta">Contact me &rarr;</a>
-        </div>
-      </article>
     </div>
   </section>
 
@@ -235,7 +203,7 @@
         <div class="footer-col__title">CASA</div>
         <ul class="footer-links">
           <li><a href="about.html">About Raffa</a></li>
-          <li><a href="events.html">Events</a></li>
+          <li><a href="events.html">Agenda</a></li>
           <li><a href="support.html">Support the project</a></li>
           <li><a href="#" data-contact-email>info@casa-schiedam.nl</a></li>
           <li><a href="#" target="_blank" rel="noopener" data-contact-instagram data-contact-instagram-text>@casa.schiedam</a></li>
