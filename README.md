@@ -2,9 +2,14 @@
 
 Website for Raffaella / CASA (Schiedam, NL): catering, cooking
 workshops & lessons, and private events, plus the crowdfunding campaign for
-a permanent space. No build step, no framework — plain HTML, one stylesheet,
-two small scripts. Deploys to GitHub Pages automatically on every push to
-`main` (`.github/workflows/static.yml`).
+a permanent space. Plain HTML, one stylesheet, two small scripts — no
+framework, and nothing to install or run yourself. The one exception is
+workshop/event dates: those come from small Markdown files that Jekyll (run
+automatically by GitHub Pages, not by you) turns into the schedule lists on
+`workshops.html` and `events.html`. See **"Adding a date"** below, or
+`ADDING-DATES.md` for the phone-friendly version. Deploys to GitHub Pages
+automatically on every push to `main` (`.github/workflows/static.yml`,
+which builds with Jekyll before publishing).
 
 ## Before it goes live — three things
 
@@ -49,17 +54,20 @@ That includes:
 - **`private-events.html`** — minimum group size for aperitivo / lunch /
   dinner at home; and the "Events we've done" section (see below) — left
   completely empty, on purpose, until you add real ones.
-- **`workshops.html`** and **`events.html`** — list the two real dates for
-  "Pasta Making with Raffa & Vale" at Rose Molen, Delft (10 Oct and 15 Nov
-  2026, sourced from [Bij de Roos's booking page](https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/)).
-  Both link out to that page since booking happens there, not on this site.
-  Past events are still an honest empty state — add real ones as they happen.
+
+The two real "Pasta Making with Raffa & Vale" dates at Rose Molen, Delft (10
+Oct and 15 Nov 2026, sourced from [Bij de Roos's booking page](https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/))
+already live in `_workshops/` — see **"Adding a date"** below for how those
+files work. Both link out to Bij de Roos since booking happens there, not on
+this site. Past events are still an honest empty state — add real ones as
+they happen (see `ADDING-DATES.md`).
 
 Workshop/private-event/catering **durations and group sizes** in the listing
 pages are reasonable-sounding placeholders too, not confirmed numbers — check
-them. The six photos on `private-events.html`'s "For your event" cards
-(reception / seated dinner / weddings / tastings / product launches / other)
-are generic food shots, not photos from real past events of that kind —
+them. The five photos on `private-events.html`'s "For your event" cards
+(Celebrations & private parties, Weddings, Guided food tasting, Product
+launches & company events, Other) are generic food shots, not photos from
+real past events of that kind —
 swap them for real ones if you have them (or use the "Events we've done"
 section below for that, which is exactly what it's for).
 
@@ -71,46 +79,69 @@ publish, and a short line (what it was, roughly how many guests). These are
 the references that sell the service, so they live here — not on the
 `events.html` agenda, which is kept as pure upcoming/past dates.
 
-## Adding an event or workshop date
+## Adding a date (workshop or event)
 
-`workshops.html` (upcoming workshops) and `events.html` (public appearances)
-both use a `.schedule-item` block. **The first tag is the category** — keep
-it to one of `Workshop`, `Tasting`, `Pop-up`, `Market` (add more if a new
-kind of appearance comes up) so the agenda stays scannable as it grows:
+**For Raffa: see `ADDING-DATES.md`** — the phone-friendly, non-technical
+version of everything below.
 
-```html
-<div class="schedule-item">
-  <div class="schedule-item__date"><span class="day">14</span><span class="month">Mar</span></div>
-  <div class="schedule-item__body">
-    <div class="schedule-item__tags"><span class="tag">Fresh pasta</span></div>
-    <h3 class="schedule-item__name">Fresh Pasta Lab</h3>
-    <p class="schedule-item__place">📍 Partner kitchen, Schiedam</p>
-  </div>
-  <div class="schedule-item__action">
-    <a class="btn-ghost" href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=Fresh%20Pasta%20Lab%20%E2%80%94%2014%20Mar">Reserve a seat</a>
-  </div>
-</div>
+Workshop and event dates are **Jekyll collections**, not hand-edited HTML.
+Adding a date means adding one small Markdown file — never touching
+`workshops.html` or `events.html` directly:
+
+```
+_templates/workshop.md   ← copy this…                 _templates/event.md   ← …or this
+_workshops/YYYY-MM-DD-short-slug.md  ← …into here      _events/YYYY-MM-DD-short-slug.md  ← …or here
 ```
 
-Copy one, edit the date/tag/name/place, and make the `detail=` value in the
-link unique so replies coming back say which date someone means. Add the
-class `schedule-item--past` to move something into a "past" list.
+A workshop (`_workshops/`) shows up on **both** workshops.html and the
+Agenda. An event (`_events/`) — a market, a pop-up, a tasting — shows up
+on the **Agenda only**. Both collections share one front-matter schema:
 
-**Expired dates hide themselves — anywhere on the site, not just in a list.**
-Give any element a `data-date="YYYY-MM-DD"` attribute and it removes itself
-the day after, with no need to come back and delete it by hand — see the
-"HIDE EXPIRED DATED ITEMS" block in `assets/js/site.js`. An item already
-marked `schedule-item--past` is left alone (it's meant to stay, as history).
-This is what makes the two real dates on `index.html`'s home page event
-cards disappear on their own once they've passed — the grid just quietly
-goes from 4 cards to 3, then 2 (the two evergreen "Private events" /
-"Book a workshop" cards have no `data-date`, so they never disappear). If
-every dated item in a `.schedule-list` has expired, the list is hidden and a
-matching `.schedule-empty[data-schedule-empty-for]` element right after it —
-present but hidden by default — is revealed instead. `events.html` and
-`workshops.html` already have one of these ready; if you add a new
-`schedule-list` elsewhere, add a `.schedule-empty[data-schedule-empty-for hidden]`
-as its next sibling too, or nothing will show once it empties out.
+| Field | Required? | Notes |
+|---|---|---|
+| `title` | ✅ | |
+| `date` | ✅ | `YYYY-MM-DD` |
+| `book_url` | ✅ | |
+| `time`, `duration`, `place`, `price`, `seats` | | each only shown if set |
+| `tags` | | a list of short labels |
+| `book_label` | | defaults to "Book →" |
+| `category` | events only | one of `tasting`, `popup`, `market`, `other` — workshops are always labelled "Workshop" automatically |
+| `past_note` | | shown instead of the booking button once the date has passed |
+
+Both collections have `output: false` in `_config.yml` — no individual
+pages are generated, they only ever get rendered inline via
+`_includes/schedule-item.html`, the one place that owns the
+`.schedule-item` markup so workshops.html and events.html can never drift
+apart. `workshops.html`'s schedule and events.html's Upcoming/Past lists
+each pull from `site.workshops` (and, on events.html, `site.events` too,
+merged in) via a small Liquid loop — read the comment right above each
+`.schedule-list` on those two pages for the exact snippet.
+
+**Two layers keep expired dates in the right place.** At *build* time,
+Jekyll only renders dates that are still in the future (`site.time`
+compared against each item's `date`) into the "upcoming" lists, and
+Agenda's "Past events" list gets everything already in the past,
+most-recent-first, with the booking button swapped for `past_note` if one
+is set. Between one build and the next — the day a date quietly tips over
+from future to past while the site hasn't rebuilt yet — the **client-side**
+layer in `assets/js/site.js` catches it: any element with a
+`data-date="YYYY-MM-DD"` attribute (which is exactly what
+`schedule-item.html` renders) that's now in the past gets moved into the
+page's `[data-schedule-past]` list if it has one (Agenda does; workshops.html
+doesn't, so there it's just removed, matching how it always worked). An
+item already marked `schedule-item--past` — i.e. Jekyll already rendered it
+that way at build time — is left alone by this client-side pass, so the two
+layers never fight each other. If every item in a `.schedule-list` is gone,
+the list hides and the matching `.schedule-empty[data-schedule-empty-for]`
+right after it is revealed — and the reverse too, now: a list that started
+empty (nothing was upcoming when the site last built) but gains an item via
+the client-side move above gets its fallback hidden again. Both directions
+matter now that a list's *starting* state depends on what Jekyll saw at
+build time, not just on what the client-side script does over time.
+
+This same `data-date` + `.schedule-empty[data-schedule-empty-for]` pattern
+still works anywhere else on the site too — e.g. `index.html`'s home-page
+event cards, which aren't part of either collection and don't need to be.
 
 ## Pages
 
@@ -120,7 +151,7 @@ as its next sibling too, or nothing will show once it empties out.
 | `about.html` | About Raffa — story, experience, ambition, my projects (Momo, Melting Pot, CASA — 3 full-width horizontal sections) |
 | `catering.html` | Four example catering offers, no prices, contact CTA |
 | `workshops.html` | Workshop cards (3-col grid, Melting Pot first &amp; highlighted), how to book, upcoming dates |
-| `private-events.html` | Organized by scale: at your home for small groups (aperitivo/lunch/dinner) vs. for your event (reception, seated dinner, weddings, tastings, product launches, other) |
+| `private-events.html` | Organized by scale: at your home for small groups (aperitivo/lunch/dinner) vs. for your event (celebrations & private parties, weddings, guided food tasting, product launches & company events, other) |
 | `events.html` | A pure agenda — upcoming public dates, past events, past workshops, and one line pointing to Private Events for anything bespoke |
 | `contact.html` | The one form everything books through |
 | `support.html` | The crowdfunding campaign and rewards (linked from About &amp; the footer, not the main nav) |
@@ -141,6 +172,12 @@ assets/css/site.css   all styling (design tokens at the top)
 assets/js/config.js   ← the only file you need to edit for delivery/contact details
 assets/js/site.js     nav, scroll reveals, FAQ, campaign band, expired-date hiding, form submission
 images/               photographs actually used by the site
+
+_config.yml            Jekyll config — the workshops/events collections, and what's excluded from the build
+_workshops/            one file per workshop date (see "Adding a date")
+_events/               one file per non-workshop date (market, pop-up, tasting…)
+_templates/            copy-and-fill starting points for the two folders above
+_includes/schedule-item.html   the one place that renders a date — workshops.html and events.html both call into it
 ```
 
 `other_images/` (extra, unused source photos) and `CASA_Crowdfunding_landing.Rproj`
@@ -193,8 +230,20 @@ everything, rather than needing two rules.
 
 ## Working on it locally
 
+For everything except dates, a plain static server is enough — pages,
+styling and scripts all work, only the schedule lists stay empty since
+nothing processes the Liquid loops in workshops.html/events.html:
+
 ```bash
 python3 -m http.server 8765    # then open http://localhost:8765
+```
+
+To see real dates locally (or to test one before committing it), run an
+actual Jekyll build instead — same engine GitHub Pages uses:
+
+```bash
+gem install jekyll --no-document   # once
+jekyll serve   # then open http://localhost:4000
 ```
 
 ## Potential additions (not built)

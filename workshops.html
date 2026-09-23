@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,38 +211,16 @@
       </p>
     </div>
     <div class="wrap">
-      <div class="needs-content fade-up">
-        <strong>Raffa —</strong> the two dates below are real (from the Bij de Roos webshop). Add any
-        other scheduled dates the same way — copy a <code>.schedule-item</code> block. For a date people
-        book directly with you, point the CTA at <code>contact.html?subject_topic=Workshops%20%26%20cooking%20lessons&amp;detail=…</code>
-        instead of an external link.
-      </div>
+      <!-- Dates come from _workshops/ — copy _templates/workshop.md, drop the
+           copy in _workshops/, commit. See ADDING-DATES.md for the full,
+           phone-friendly walkthrough. Nothing on this page is hand-edited. -->
+      {% assign now = site.time %}
+      {% assign upcoming_workshops = site.workshops | where_exp: "item", "item.date >= now" | sort: "date" %}
       <div class="schedule-list fade-up">
-        <div class="schedule-item" data-date="2026-10-10">
-          <div class="schedule-item__date"><span class="day">10</span><span class="month">Oct '26</span></div>
-          <div class="schedule-item__body">
-            <div class="schedule-item__tags"><span class="tag tag--muted">Workshop</span><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
-            <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
-            <p class="schedule-item__place">📍 Rose Molen, Delft · 4:00&nbsp;pm · €125 p.p. · max 10 seats</p>
-          </div>
-          <div class="schedule-item__action">
-            <a class="btn-ghost" href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener">Book on Bij de Roos &rarr;</a>
-          </div>
-        </div>
-        <div class="schedule-item" data-date="2026-11-15">
-          <div class="schedule-item__date"><span class="day">15</span><span class="month">Nov '26</span></div>
-          <div class="schedule-item__body">
-            <div class="schedule-item__tags"><span class="tag tag--muted">Workshop</span><span class="tag">Fresh pasta</span><span class="tag tag--light">With Valentina</span></div>
-            <h3 class="schedule-item__name">Pasta Making with Raffa &amp; Vale</h3>
-            <p class="schedule-item__place">📍 Rose Molen, Delft · 12:00&nbsp;pm · €125 p.p. · max 10 seats</p>
-          </div>
-          <div class="schedule-item__action">
-            <a class="btn-ghost" href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener">Book on Bij de Roos &rarr;</a>
-          </div>
-        </div>
+        {% for item in upcoming_workshops %}{% include schedule-item.html item=item %}{% endfor %}
       </div>
       <!-- shown automatically once every dated item above has passed — see site.js -->
-      <div class="schedule-empty fade-up" data-schedule-empty-for hidden>
+      <div class="schedule-empty fade-up" data-schedule-empty-for{% if upcoming_workshops.size > 0 %} hidden{% endif %}>
         No open-seat dates on the calendar right now. <a href="contact.html?subject_topic=Workshops%20%26%20cooking%20lessons" style="color:var(--terracotta)">Get in touch</a>
         to ask about the next one, or book a private or team workshop any time.
       </div>

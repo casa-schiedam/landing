@@ -1,5 +1,13 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Build the site with Jekyll, then deploy the built output to GitHub Pages.
+#
+# This used to just upload the raw repo as-is (no Jekyll build at all) —
+# fine while the site was plain HTML/CSS/JS, but workshops.html and
+# events.html now pull their dates from the workshops/events collections
+# via Liquid, which only ever runs if something actually builds the site
+# first. actions/jekyll-build-pages does exactly that: it's GitHub's own
+# action, uses the same Jekyll/github-pages gem environment as GitHub's
+# native Pages build, and needs no Gemfile of our own.
+name: Build and deploy with Jekyll
 
 on:
   # Runs on pushes targeting the default branch
@@ -22,22 +30,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: ./_site
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5

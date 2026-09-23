@@ -202,14 +202,18 @@
     datedPast.forEach(function (el) { pastList.appendChild(el); });
   }
 
-  /* If a .schedule-list ends up with nothing left in it, hide the list and
-     reveal the matching .schedule-empty[data-schedule-empty-for] right
-     after it — present in the page, hidden by default.                   */
+  /* Keep each .schedule-list and its matching .schedule-empty[data-
+     schedule-empty-for] (its next sibling) in sync both ways: empty list
+     → hide the list, reveal the fallback; has items → the reverse. Both
+     directions matter now that Jekyll pre-filters at build time — a list
+     can start already empty in the rendered HTML (nothing was upcoming
+     when the site last built) and then gain items right here, moments
+     later, as the migration step above moves something into a past list. */
   document.querySelectorAll('.schedule-list').forEach(function (list) {
-    if (list.querySelector('.schedule-item')) return; // still has something (dated & current, or undated)
-    list.style.display = 'none';
+    var isEmpty = !list.querySelector('.schedule-item');
+    list.style.display = isEmpty ? 'none' : '';
     var fallback = list.nextElementSibling;
-    if (fallback && fallback.hasAttribute('data-schedule-empty-for')) fallback.hidden = false;
+    if (fallback && fallback.hasAttribute('data-schedule-empty-for')) fallback.hidden = !isEmpty;
   });
 
   /* ── FORMS ─────────────────────────────────────────────────────────── */

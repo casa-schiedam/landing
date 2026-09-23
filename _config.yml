@@ -1,0 +1,22 @@
+# CASA — Jekyll config
+#
+# This site is otherwise plain HTML/CSS/JS with no build step of its own —
+# Jekyll is used for exactly one thing: turning a small Markdown file into a
+# schedule-item on workshops.html / events.html, so adding a date never means
+# hand-editing either page. See ADDING-DATES.md for how Raffa does that.
+
+collections:
+  workshops:
+    output: false   # no individual pages — items are only ever rendered
+  events:            # inline into a schedule list via _includes/schedule-item.html
+    output: false
+
+# Files that exist for the repo/maintainers, not for the published site.
+# (Jekyll already ignores dotfiles and most underscore-prefixed folders by
+# default — .github, .gitignore, _templates etc. don't need listing here —
+# but _templates is named explicitly anyway per the brief, since "already
+# the default" is easy to get wrong later if Jekyll's defaults ever change.)
+exclude:
+  - README.md
+  - ADDING-DATES.md
+  - _templates

@@ -1,0 +1,50 @@
+{% comment %}
+  Renders one .schedule-item block for a workshop or event collection item —
+  the single source of the markup used on both workshops.html and
+  events.html, so they can never drift apart.
+
+  Usage:
+    {% include schedule-item.html item=some_item %}
+    {% include schedule-item.html item=some_item past=true %}
+
+  `item` is a document from the workshops or events collection (front
+  matter: title, date, time, duration, place, price, seats, tags,
+  book_url, book_label, category, past_note — see _templates/ for the
+  full schema, every field but title/date/book_url is optional).
+
+  `past=true` renders it in the "already happened" state: the
+  schedule-item--past class, past_note instead of a booking button (or
+  nothing, if past_note isn't set), and no data-date-driven client-side
+  logic will touch it again — see assets/js/site.js, which already skips
+  anything already carrying schedule-item--past.
+
+  Every field is HTML-escaped on the way out (Raffa is typing these values
+  into a text file — an accidental & or < shouldn't be able to break the
+  page), which is also why this can't just be a straight copy of the old
+  hand-written markup: that used raw ampersands like "Raffa & Vale" without
+  entity-escaping them. Escaped, that becomes "Raffa &amp; Vale" in the
+  HTML source — renders identically, just written the technically-correct
+  way instead of the shortcut way.
+{% endcomment %}
+{% assign item = include.item %}
+{% assign cat = item.category | default: "workshop" %}
+{% case cat %}
+  {% when "workshop" %}{% assign cat_label = "Workshop" %}
+  {% when "tasting" %}{% assign cat_label = "Tasting" %}
+  {% when "popup" %}{% assign cat_label = "Pop-up" %}
+  {% when "market" %}{% assign cat_label = "Market" %}
+  {% when "other" %}{% assign cat_label = "Other" %}
+  {% else %}{% assign cat_label = cat | capitalize %}
+{% endcase %}
+<div class="schedule-item{% if include.past %} schedule-item--past{% endif %}" data-date="{{ item.date | date: '%Y-%m-%d' }}">
+  <div class="schedule-item__date"><span class="day">{{ item.date | date: '%-d' }}</span><span class="month">{{ item.date | date: "%b '%y" }}</span></div>
+  <div class="schedule-item__body">
+    <div class="schedule-item__tags"><span class="tag tag--muted">{{ cat_label | escape }}</span>{% for tag in item.tags %}<span class="tag">{{ tag | escape }}</span>{% endfor %}</div>
+    <h3 class="schedule-item__name">{{ item.title | escape }}</h3>
+    {% if item.place %}<p class="schedule-item__place">📍 {{ item.place | escape }}</p>{% endif %}
+    {% if item.time or item.duration or item.price or item.seats %}<p class="schedule-item__place" style="margin-top:0.3rem;">🕒{% if item.time %} {{ item.time | escape }}{% endif %}{% if item.duration %} · {{ item.duration | escape }}{% endif %}{% if item.price %} · {{ item.price | escape }}{% endif %}{% if item.seats %} · {{ item.seats | escape }}{% endif %}</p>{% endif %}
+  </div>
+  <div class="schedule-item__action">
+    {% if include.past %}{% if item.past_note %}<p class="schedule-item__place" style="margin:0;font-style:italic;">{{ item.past_note | escape }}</p>{% endif %}{% else %}<a class="btn-ghost" href="{{ item.book_url | escape }}" target="_blank" rel="noopener">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
+  </div>
+</div>
