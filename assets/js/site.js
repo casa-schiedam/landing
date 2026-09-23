@@ -147,16 +147,44 @@
     if (!d.min) d.min = today;
   });
 
-  /* ── HIDE EXPIRED DATED ITEMS ───────────────────────────────────────────
+  /* ── RETIRE EXPIRED DATED ITEMS ─────────────────────────────────────────
      Give ANY element a data-date="YYYY-MM-DD" (a .schedule-item on
      workshops.html/events.html, a .project-card on the home page, or
-     anything else) and it disappears on its own the day after, with no
-     need to come back and delete it by hand. An item already marked
-     .schedule-item--past is left alone (it's meant to stay, as history).  */
+     anything else) and, the day after, this either:
+     - moves it into the page's [data-schedule-past] list, if one exists —
+       marked .schedule-item--past and stripped of its booking action (a
+       past date can't be booked), most-recent-first; or
+     - if the page has no past list (e.g. workshops.html's own schedule),
+       removes it outright, same as before.
+     An item already marked .schedule-item--past is left alone — it's
+     meant to stay, as history.                                           */
+  var pastList = document.querySelector('[data-schedule-past]');
   document.querySelectorAll('[data-date]').forEach(function (item) {
     if (item.classList.contains('schedule-item--past')) return;
-    if (item.getAttribute('data-date') < today) item.remove();
+    if (item.getAttribute('data-date') >= today) return;
+
+    if (pastList) {
+      item.classList.add('schedule-item--past');
+      var action = item.querySelector('.schedule-item__action');
+      if (action) action.remove();
+      pastList.appendChild(item);
+    } else {
+      item.remove();
+    }
   });
+
+  // keep the past list sorted most-recent-first; items with no data-date
+  // (added by hand, e.g. an old market with no exact date on record) are
+  // left wherever they were placed in the markup.
+  if (pastList) {
+    var datedPast = Array.prototype.filter.call(pastList.children, function (el) {
+      return el.hasAttribute('data-date');
+    });
+    datedPast.sort(function (a, b) {
+      return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date'));
+    });
+    datedPast.forEach(function (el) { pastList.appendChild(el); });
+  }
 
   /* If a .schedule-list ends up with nothing left in it, hide the list and
      reveal the matching .schedule-empty[data-schedule-empty-for] right

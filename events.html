@@ -60,9 +60,20 @@
     HOW TO ADD AN EVENT
     Copy one .schedule-item block (from the Upcoming section below, or from
     workshops.html's schedule) and edit: day, month, category tag(s), name,
-    place, and the "detail" value in the booking link. Move it to "Past
-    events" once the date has gone, by adding the class
-    schedule-item--past to the outer div.
+    place, and the "detail" value in the booking link.
+
+    You do NOT need to move it to "Past events" by hand once the date has
+    gone — site.js does that on its own: any [data-date] item older than
+    today gets moved into the .schedule-list[data-schedule-past] below,
+    marked schedule-item--past, its booking button dropped (a past date
+    can't be booked), sorted most-recent-first. That only works because
+    this page has a [data-schedule-past] list to move things into —
+    workshops.html doesn't, so its expired dates are just removed instead.
+
+    Adding a past event that never appeared in "Upcoming" (an old market
+    with no exact date on record, say)? Add it straight into the
+    [data-schedule-past] list by hand, with class schedule-item--past —
+    same block, no data-date needed if you don't have one.
 
     First tag = category. Keep to one of: Workshop, Tasting, Pop-up, Market
     (add more here if a new kind of appearance comes up) — that's what
@@ -130,10 +141,14 @@
     </div>
     <div class="wrap">
       <div class="needs-content fade-up">
-        <strong>Raffa —</strong> add the markets, pop-ups and tastings you've already done here,
-        same format as above, with <code>schedule-item--past</code> added to the item's class.
+        <strong>Raffa —</strong> upcoming dates above move here automatically once they pass — see
+        site.js — so this list usually fills itself. Add a market or pop-up manually the same way
+        (copy a <code>.schedule-item</code>, add the class <code>schedule-item--past</code>) only if
+        it never appeared in the "Upcoming" list to begin with.
       </div>
-      <div class="schedule-empty fade-up">
+      <div class="schedule-list fade-up" data-schedule-past></div>
+      <!-- shown automatically once the past list is empty — see site.js -->
+      <div class="schedule-empty fade-up" data-schedule-empty-for hidden>
         Past events will be listed here once added.
       </div>
     </div>
