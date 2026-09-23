@@ -1087,6 +1087,12 @@ footer {
 .service-card__cta { display: inline-block; padding: 0.5rem 0; margin: -0.5rem 0; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .service-card:hover .service-card__cta { border-color: var(--terracotta); }
 
+/* compact facts row inside a service-card (Guests / Book ahead / From, etc.) */
+.service-card__facts { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 0.9rem 0 1.1rem; }
+.service-card__fact-label { display: block; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-mid); margin-bottom: 0.2rem; }
+.service-card__fact-value { font-size: 0.82rem; color: var(--dark); font-weight: 500; line-height: 1.4; }
+.service-card__fact-value .needs-content { display: inline-block; margin: 0.2rem 0 0; padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 400; }
+
 /* ── SCHEDULE ITEMS (workshop dates, events — upcoming & past) ── */
 .schedule-list { display: flex; flex-direction: column; gap: 1px; background: var(--cream-dark); }
 .schedule-item {
