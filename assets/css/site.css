@@ -568,6 +568,12 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7.5px) rota
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .field { display: flex; flex-direction: column; gap: 0.45rem; }
 .field--full { grid-column: 1 / -1; }
+/* fields shown only for a specific subject_topic (see site.js) — toggled
+   with a class rather than the hidden attribute, since .field's own
+   display:flex (an author rule) would otherwise beat the UA [hidden] rule
+   at equal specificity regardless of source order. */
+.field[data-show-for-topic] { display: none; }
+.field[data-show-for-topic].is-visible { display: flex; }
 .field label {
   font-size: 0.72rem;
   letter-spacing: 0.12em;

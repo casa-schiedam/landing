@@ -104,6 +104,21 @@
             <input type="number" id="g-people" name="people" min="1" max="1000" placeholder="e.g. 8" />
           </div>
 
+          <div class="field" data-show-for-topic="Private events">
+            <label for="g-location">Location / venue</label>
+            <input type="text" id="g-location" name="location" placeholder="Your home in Schiedam, a venue in Rotterdam…" />
+          </div>
+          <div class="field" data-show-for-topic="Private events">
+            <label for="g-budget">Indicative budget</label>
+            <select id="g-budget" name="budget">
+              <option value="Not sure yet">Not sure yet</option>
+              <option value="Under €500">Under €500</option>
+              <option value="€500–1,500">€500–1,500</option>
+              <option value="€1,500–5,000">€1,500–5,000</option>
+              <option value="Over €5,000">Over €5,000</option>
+            </select>
+          </div>
+
           <div class="field field--full">
             <label for="g-msg">Your message <span class="req">*</span></label>
             <textarea id="g-msg" name="message" placeholder="Tell Raffaella what you have in mind: the occasion, allergies, anything that matters…" required></textarea>

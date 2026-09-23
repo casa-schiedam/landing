@@ -141,6 +141,22 @@
     });
   }
 
+  /* ── SHOW TOPIC-SPECIFIC FIELDS (e.g. location/budget for Private events) ─
+     A field marked data-show-for-topic="X" only makes sense when the
+     form's subject_topic select is set to X. Runs once immediately (so it
+     reflects a value that arrived pre-filled via the URL — the PREFILL
+     block above sets .value directly, which fires no 'change' event) and
+     again on every manual change.                                        */
+  document.querySelectorAll('select[name="subject_topic"]').forEach(function (select) {
+    var updateTopicFields = function () {
+      document.querySelectorAll('[data-show-for-topic]').forEach(function (field) {
+        field.classList.toggle('is-visible', field.getAttribute('data-show-for-topic') === select.value);
+      });
+    };
+    select.addEventListener('change', updateTopicFields);
+    updateTopicFields();
+  });
+
   /* ── DATE FIELDS CANNOT BE IN THE PAST ─────────────────────────────── */
   var today = new Date().toISOString().split('T')[0];
   document.querySelectorAll('input[type="date"]').forEach(function (d) {
@@ -211,6 +227,16 @@
     new FormData(form).forEach(function (value, key) {
       if (key === 'casa_hp') return;                 // honeypot, never forwarded
       if (typeof value !== 'string') return;         // no file uploads on this site
+
+      // A field hidden behind a data-show-for-topic toggle for a topic
+      // other than the one currently selected (e.g. budget/location when
+      // subject_topic isn't Private events) is skipped outright, even if
+      // it carries a non-empty value (a <select> with a real default,
+      // say) — CSS-hiding alone doesn't stop FormData from including it.
+      var field = namedFields(form, key)[0];
+      var wrapper = field && field.closest('[data-show-for-topic]');
+      if (wrapper && !wrapper.classList.contains('is-visible')) return;
+
       var v = value.trim();
       if (!v) return;
       data[key] = data[key] ? data[key] + ', ' + v : v;
