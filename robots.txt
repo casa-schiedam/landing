@@ -1,0 +1,8 @@
+---
+# Front matter (even empty) makes Jekyll process this file, so the sitemap
+# URL below is filled in from _config.yml rather than hardcoded.
+---
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

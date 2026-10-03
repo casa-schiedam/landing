@@ -20,3 +20,13 @@ exclude:
   - README.md
   - ADDING-DATES.md
   - _templates
+
+# Full site address — jekyll-sitemap and robots.txt use it to build absolute
+# URLs (Google needs those; relative paths in a sitemap are ignored).
+url: "https://casa-schiedam.nl"
+
+# Generates /sitemap.xml at build time from every published page, so it
+# never needs hand-updating when a page is added. Bundled with GitHub's
+# jekyll-build-pages action, so no Gemfile is needed.
+plugins:
+  - jekyll-sitemap
