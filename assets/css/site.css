@@ -132,11 +132,11 @@
 
 /* ── TOKENS ── */
 :root {
-  --terracotta: #1F6E3A;          /* greengrocer green — the accent */
+  --terracotta: #1A5E31;          /* greengrocer green — the accent (deep enough to read on kraft) */
   --terracotta-light: #F4D03F;    /* price-tag yellow — accent on dark */
   --cream: #E4D3B4;               /* kraft paper — page background */
   --cream-dark: #C9B48F;
-  --olive: #1F6E3A;
+  --olive: #1A5E31;
   --olive-light: #3E8A55;
   --dark: #1C1A17;
   --warm-mid: #4A4236;
@@ -145,7 +145,7 @@
   --stamp: #C0392B;               /* rubber-stamp red — tags, dates */
 
   /* the same colours as bare R,G,B, for rgba() — themes override both */
-  --terracotta-rgb: 31,110,58;
+  --terracotta-rgb: 26,94,49;
   --terracotta-light-rgb: 244,208,63;
   --dark-rgb: 28,26,23;
   --cream-rgb: 228,211,180;
@@ -157,8 +157,8 @@
   /* text roles — kept separate from the surface colours so a dark theme
      can flip them without touching every component */
   --ink: var(--dark);              /* body text on page/card surfaces */
-  --on-dark: var(--cream);         /* text on dark surfaces and photos */
-  --on-dark-rgb: var(--cream-rgb);
+  --on-dark: #FBF7EE;              /* text on dark surfaces and photos — near-white paper, not kraft */
+  --on-dark-rgb: 251,247,238;
   --on-accent: var(--white);       /* text on accent-coloured buttons/badges */
 
   --font-display: 'Anton', 'Impact', sans-serif;
@@ -1443,6 +1443,32 @@ nav { background: rgba(228,211,180,0.94); border-bottom: 2px solid var(--dark); 
    price-tag yellow — green-on-green / green-on-black was unreadable */
 .section--dark .section-title em,
 .cta-final .section-title em { color: var(--terracotta-light); }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   READABILITY — every text/background pair here passes WCAG AA (4.5:1)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* photo tiles: a darker wash behind the text, plus a soft shadow, so it reads
+   over busy food photos */
+.offer-card__overlay,
+.offer-card:hover .offer-card__overlay {
+  background: linear-gradient(to top, rgba(var(--dark-rgb),0.94) 0%, rgba(var(--dark-rgb),0.78) 55%, rgba(var(--dark-rgb),0.45) 100%);
+}
+.offer-card__name, .offer-card__desc, .offer-card__link { text-shadow: 0 1px 3px rgba(0,0,0,0.55); }
+.offer-card__desc { color: var(--on-dark); }
+
+/* yellow tags: a solid price-tag label with dark text — yellow text on
+   paper/kraft was unreadable */
+.tag--light {
+  background: var(--terracotta-light);
+  color: var(--dark);
+  border-color: var(--dark);
+}
+
+/* text on the green closing band and the dark sections at full strength */
+.cta-final p { color: var(--on-dark); }
+.footer-copy { color: #A89B82; }
 
 
 /* ══════════════════════════════════════════════════════════════════════════
