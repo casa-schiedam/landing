@@ -1331,7 +1331,7 @@ footer {
 
 @media (max-width: 900px) {
   .project-grid { grid-template-columns: 1fr; }
-  .project-row { grid-template-columns: 1fr; }
+  .project-row { grid-template-columns: 1fr; gap: 0; }  /* the 3rem desktop column gap became an empty band under the photo */
   .project-row__media { aspect-ratio: 16/9; min-height: 0; }
   .project-row__body { padding: 1.6rem; }
   .service-grid { grid-template-columns: 1fr; }
