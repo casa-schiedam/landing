@@ -8,7 +8,7 @@ price: "€125 p.p."
 seats: "max 10 seats"
 tags:
   - "Fresh pasta"
-  - "With Valentina"
+  - "Melting Pot"
 book_url: "https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/"
 book_label: "Book on Bij de Roos →"
 ---
