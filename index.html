@@ -107,7 +107,7 @@
         <div class="project-card fade-up" data-date="{{ item.date | date: '%Y-%m-%d' }}">
           <div class="project-card__media">
             <span class="project-card__badge"><span class="day">{{ item.date | date: '%-d' }}</span><span class="month">{{ item.date | date: '%b' }}</span></span>
-            {% cycle '<img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="A group shaping gnocchi together at a cooking workshop" />', '<img loading="lazy" decoding="async" src="images/kitchen/handmade-fusilli.jpg" alt="Rows of handmade fusilli on a floured board" />' %}
+            {% comment %} first card: the session's own photo (Raffa & Vale at Molen de Roos); the second gets a pasta photo so the same picture never sits twice side by side {% endcomment %}{% if forloop.first and item.image_thumb %}<img loading="lazy" decoding="async" src="{{ item.image_thumb }}" alt="{{ item.image_alt | escape }}" style="object-position:center 30%;" />{% elsif forloop.first %}<img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="A group shaping gnocchi together at a cooking workshop" />{% else %}<img loading="lazy" decoding="async" src="images/kitchen/handmade-fusilli.jpg" alt="Rows of handmade fusilli on a floured board" />{% endif %}
           </div>
           <div class="project-card__body">
             {% if item.tags %}<span class="tag tag--light project-card__eyebrow">{{ item.tags | join: " · " | escape }}</span>{% endif %}

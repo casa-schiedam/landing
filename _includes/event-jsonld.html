@@ -20,7 +20,7 @@
     "name": {{ item.place | default: "Schiedam" | jsonify }},
     "address": {{ item.place | default: "Schiedam, Netherlands" | jsonify }}
   },
-  "image": "https://casa-schiedam.nl/images/workshops.jpg",
+  "image": "https://casa-schiedam.nl/{{ item.image | default: 'images/workshops.jpg' }}",
   "organizer": { "@type": "Organization", "name": "CASA — Raffaella Amista", "url": "https://casa-schiedam.nl/" },
   "performer": { "@type": "Person", "name": "Raffaella Amista" },
   "offers": {

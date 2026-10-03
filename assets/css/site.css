@@ -1482,6 +1482,7 @@ nav { background: rgba(228,211,180,0.94); border-bottom: 2px solid var(--dark); 
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--stamp); border: 2px solid var(--stamp); border-radius: 3px;
   padding: 0.45rem 0.9rem; transform: rotate(-3deg);
+  align-self: flex-start;   /* stay stamp-sized inside the cards' flex column */
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
