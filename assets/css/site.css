@@ -1163,6 +1163,7 @@ footer {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+.project-grid--2 { grid-template-columns: repeat(2, 1fr); }
 .project-grid--4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 1100px) { .project-grid--4 { grid-template-columns: repeat(2, 1fr); } }
 .project-card {
@@ -1438,6 +1439,10 @@ nav { background: rgba(228,211,180,0.94); border-bottom: 2px solid var(--dark); 
 .cta-final { background: var(--terracotta); }
 .cta-final p { color: rgba(246,238,223,0.85); }
 .cta-final .btn-primary { background: var(--terracotta-light); border-color: var(--terracotta-light); color: var(--dark); }
+/* the second (emphasised) line of a heading on a dark or green band uses the
+   price-tag yellow — green-on-green / green-on-black was unreadable */
+.section--dark .section-title em,
+.cta-final .section-title em { color: var(--terracotta-light); }
 
 
 /* ══════════════════════════════════════════════════════════════════════════
