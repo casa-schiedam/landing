@@ -5,12 +5,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshops & cooking lessons in Schiedam — CASA</title>
-  <meta name="description" content="Hands-on Italian cooking workshops and private lessons in Schiedam: fresh pasta, Melting Pot world cuisine, private and team sessions." />
-  <meta property="og:title" content="Workshops & cooking lessons in Schiedam — CASA" />
-  <meta property="og:description" content="Hands-on Italian cooking workshops and private lessons in Schiedam: fresh pasta, Melting Pot world cuisine, private and team sessions." />
+  <title>Cooking workshops &amp; pasta classes in Schiedam &amp; Delft — CASA</title>
+  <meta name="description" content="Hands-on cooking workshops with Raffaella Amista in Schiedam and Delft: fresh pasta, the Melting Pot culinary conversation lab, private and team-building sessions. Kookworkshop Italiaans." />
+  <meta property="og:title" content="Cooking workshops &amp; pasta classes in Schiedam &amp; Delft — CASA" />
+  <meta property="og:description" content="Hands-on cooking workshops with Raffaella Amista in Schiedam and Delft: fresh pasta, the Melting Pot culinary conversation lab, private and team-building sessions. Kookworkshop Italiaans." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/workshops.jpg" />
+  <meta property="og:image" content="https://casa-schiedam.nl/images/workshops.jpg" />
+  <meta property="og:url" content="https://casa-schiedam.nl/workshops.html" />
+  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://casa-schiedam.nl/workshops.html" />
   <meta name="theme-color" content="#C1674A" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,8 +52,8 @@
   <header class="page-hero">
     <img class="page-hero__bg" src="images/workshops.jpg" alt="" aria-hidden="true" />
     <div class="page-hero__inner">
-      <span class="section-label">Workshops &amp; cooking lessons</span>
-      <h1 class="page-hero__title">Hands in the flour<br /><em>from minute one.</em></h1>
+      <span class="section-label" aria-hidden="true">Cooking workshops &amp; pasta classes &middot; Schiedam &amp; Delft</span>
+      <h1 class="page-hero__title"><span class="sr-only">Cooking workshops &amp; pasta classes — Schiedam &amp; Delft: </span>Hands in the flour<br /><em>from minute one.</em></h1>
       <p class="page-hero__sub">
         No demonstrations, no watching from a stool. You make the dough, you roll it, you shape it,
         and then everyone sits down and eats it together.
@@ -64,7 +69,7 @@
   <section class="section section--cream" id="workshops">
     <div class="wrap section-head fade-up">
       <span class="section-label">What you can learn</span>
-      <h2 class="section-title">Six workshops,<br /><em>one very full table.</em></h2>
+      <h2 class="section-title">Three workshops,<br /><em>one very full table.</em></h2>
       <p class="section-intro">
         All levels welcome &mdash; genuinely. Aprons, ingredients and equipment are provided.
         Every workshop ends with everyone eating what they made.
@@ -73,7 +78,7 @@
     <div class="wrap listing">
       <article class="listing-item listing-item--featured fade-up">
         <span class="featured-badge">★ Featured</span>
-        <div class="listing-item__media"><img src="images/gallery-3.jpg" alt="Dishes from different world cuisines" /></div>
+        <div class="listing-item__media"><img loading="lazy" decoding="async" src="images/gallery-3.jpg" alt="Dishes from different world cuisines" /></div>
         <div class="listing-item__body">
           <span class="tag tag--light" style="margin-bottom:0.7rem;display:inline-block;">Melting Pot</span>
           <h3 class="listing-item__name">Melting Pot</h3>
@@ -88,7 +93,7 @@
       </article>
 
       <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" /></div>
+        <div class="listing-item__media"><img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" /></div>
         <div class="listing-item__body">
           <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Fresh pasta</span>
           <h3 class="listing-item__name">Fresh Pasta Lab</h3>
@@ -103,7 +108,7 @@
       </article>
 
       <article class="listing-item fade-up">
-        <div class="listing-item__media"><img src="images/gallery-4.jpg" alt="A team cooking together" /></div>
+        <div class="listing-item__media"><img loading="lazy" decoding="async" src="images/gallery-4.jpg" alt="A team cooking together" /></div>
         <div class="listing-item__body">
           <span class="tag" style="margin-bottom:0.7rem;display:inline-block;">Private &amp; team</span>
           <h3 class="listing-item__name">Private &amp; team workshops</h3>
@@ -170,7 +175,7 @@
       {% assign now = site.time %}
       {% assign upcoming_workshops = site.workshops | where_exp: "item", "item.date >= now" | sort: "date" %}
       <div class="schedule-list fade-up">
-        {% for item in upcoming_workshops %}{% include schedule-item.html item=item %}{% endfor %}
+        {% for item in upcoming_workshops %}{% include schedule-item.html item=item %}{% include event-jsonld.html item=item %}{% endfor %}
       </div>
       <!-- shown automatically once every dated item above has passed — see site.js -->
       <div class="schedule-empty fade-up" data-schedule-empty-for{% if upcoming_workshops.size > 0 %} hidden{% endif %}>
@@ -227,7 +232,7 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
           and lessons, and private events. CASA is the fixed home she's building for all of it.
         </p>
       </div>

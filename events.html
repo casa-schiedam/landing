@@ -5,12 +5,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda — CASA, Schiedam</title>
-  <meta name="description" content="The CASA agenda: upcoming public dates you can just join, in and around Schiedam — pop-up dinners, tastings and markets." />
-  <meta property="og:title" content="Agenda — CASA, Schiedam" />
-  <meta property="og:description" content="The CASA agenda: upcoming public dates you can just join, in and around Schiedam — pop-up dinners, tastings and markets." />
+  <title>Agenda: Italian food events in Schiedam &amp; Delft — CASA</title>
+  <meta name="description" content="Upcoming public dates with Raffaella Amista in and around Schiedam and Delft: pasta workshops, pop-up dinners, tastings and markets you can simply join." />
+  <meta property="og:title" content="Agenda: Italian food events in Schiedam &amp; Delft — CASA" />
+  <meta property="og:description" content="Upcoming public dates with Raffaella Amista in and around Schiedam and Delft: pasta workshops, pop-up dinners, tastings and markets you can simply join." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/subr.jpg" />
+  <meta property="og:image" content="https://casa-schiedam.nl/images/subr.jpg" />
+  <meta property="og:url" content="https://casa-schiedam.nl/events.html" />
+  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://casa-schiedam.nl/events.html" />
   <meta name="theme-color" content="#C1674A" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,8 +52,8 @@
   <header class="page-hero">
     <img class="page-hero__bg" src="images/subr.jpg" alt="" aria-hidden="true" />
     <div class="page-hero__inner">
-      <span class="section-label">Agenda</span>
-      <h1 class="page-hero__title">Where to find<br />Raffaella<br /><em>outside the kitchen.</em></h1>
+      <span class="section-label" aria-hidden="true">Agenda &middot; Food events &amp; workshops in Schiedam and Delft</span>
+      <h1 class="page-hero__title"><span class="sr-only">Agenda — Food events &amp; workshops in Schiedam and Delft: </span>Where to find<br />Raffaella<br /><em>outside the kitchen.</em></h1>
       <p class="page-hero__sub">
         Pop-up dinners, wine tastings, markets, festivals &mdash; the public dates you don't need a
         private booking to join. Follow <a href="#" data-contact-instagram data-contact-instagram-text target="_blank" rel="noopener" style="color:var(--terracotta-light)">@casa.schiedam</a>
@@ -79,7 +84,7 @@
       {% assign all_dates = site.workshops | concat: site.events %}
       {% assign upcoming = all_dates | where_exp: "item", "item.date >= now" | sort: "date" %}
       <div class="schedule-list fade-up">
-        {% for item in upcoming %}{% include schedule-item.html item=item %}{% endfor %}
+        {% for item in upcoming %}{% include schedule-item.html item=item %}{% include event-jsonld.html item=item %}{% endfor %}
       </div>
       <!-- shown automatically once every dated item above has passed — see site.js -->
       <div class="schedule-empty fade-up" data-schedule-empty-for{% if upcoming.size > 0 %} hidden{% endif %}>
@@ -122,10 +127,10 @@
       </p>
     </div>
     <div class="wrap galleria-grid">
-      <div class="gal-item fade-up"><img src="images/gallery-1.jpg" alt="A past workshop" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-2.jpg" alt="Hands working dough" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-3.jpg" alt="A finished dish from a past workshop" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-4.jpg" alt="A past workshop mid-session" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-1.jpg" alt="A past workshop" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-2.jpg" alt="Hands working dough" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-3.jpg" alt="A finished dish from a past workshop" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-4.jpg" alt="A past workshop mid-session" /></div>
     </div>
   </section>
 
@@ -146,7 +151,7 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
           and lessons, and private events. CASA is the fixed home she's building for all of it.
         </p>
       </div>

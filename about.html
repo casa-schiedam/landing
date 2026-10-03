@@ -1,20 +1,28 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Raffa — CASA, Schiedam</title>
-  <meta name="description" content="Raffaella's story: from a childhood kitchen in Naples to Momo Cooking, Melting Pot, and CASA — the fixed home she's building in Schiedam." />
-  <meta property="og:title" content="About Raffa — CASA, Schiedam" />
-  <meta property="og:description" content="Raffaella's story: from a childhood kitchen in Naples to Momo Cooking, Melting Pot, and CASA — the fixed home she's building in Schiedam." />
+  <title>About Raffaella Amista — CASA, Schiedam</title>
+  <meta name="description" content="Raffaella Amista's story: from a childhood kitchen in Naples to Momo Cooking, Melting Pot and CASA — the community kitchen she's building in Schiedam." />
+  <meta property="og:title" content="About Raffaella Amista — CASA, Schiedam" />
+  <meta property="og:description" content="Raffaella Amista's story: from a childhood kitchen in Naples to Momo Cooking, Melting Pot and CASA — the community kitchen she's building in Schiedam." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/raffa.jpg" />
+  <meta property="og:image" content="https://casa-schiedam.nl/images/raffa.jpg" />
+  <meta property="og:url" content="https://casa-schiedam.nl/about.html" />
+  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://casa-schiedam.nl/about.html" />
   <meta name="theme-color" content="#C1674A" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
+  {% include site-jsonld.html %}
 </head>
 <body>
 
@@ -45,8 +53,8 @@
   <header class="page-hero">
     <img class="page-hero__bg" src="images/hero.jpg" alt="" aria-hidden="true" />
     <div class="page-hero__inner">
-      <span class="section-label">About Raffa</span>
-      <h1 class="page-hero__title">A Neapolitan kitchen,<br />then the Netherlands,<br /><em>then an idea.</em></h1>
+      <span class="section-label" aria-hidden="true">About Raffaella Amista</span>
+      <h1 class="page-hero__title"><span class="sr-only">About Raffaella Amista: </span>A Neapolitan kitchen,<br />then the Netherlands,<br /><em>then an idea.</em></h1>
       <p class="page-hero__sub">
         Story, experience, and what she's building next &mdash; from a childhood kitchen in Naples
         to Momo Cooking, Melting Pot, and now CASA.
@@ -72,8 +80,8 @@
         </div>
       </div>
       <div class="storia-visuals fade-up">
-        <div class="storia-photo-main"><img src="images/raffa.jpg" alt="Raffaella" /></div>
-        <div class="storia-photo-secondary"><img src="images/gallery-1.jpg" alt="A Momo Cooking workshop" /></div>
+        <div class="storia-photo-main"><img loading="lazy" decoding="async" src="images/raffa.jpg" alt="Raffaella" /></div>
+        <div class="storia-photo-secondary"><img loading="lazy" decoding="async" src="images/gallery-1.jpg" alt="A Momo Cooking workshop" /></div>
       </div>
     </div>
   </section>
@@ -128,7 +136,7 @@
     </div>
     <div class="wrap project-rows">
       <article class="project-row fade-up" id="momo">
-        <div class="project-row__media"><img src="images/gallery-2.jpg" alt="A Momo Cooking workshop in progress" /></div>
+        <div class="project-row__media"><img loading="lazy" decoding="async" src="images/gallery-2.jpg" alt="A Momo Cooking workshop in progress" /></div>
         <div class="project-row__body">
           <span class="tag tag--muted project-row__eyebrow">2021 &mdash; ongoing</span>
           <h3 class="project-row__name">Momo Cooking</h3>
@@ -140,7 +148,7 @@
         </div>
       </article>
       <article class="project-row fade-up" id="melting-pot">
-        <div class="project-row__media"><img src="images/subr.jpg" alt="A shared table of people from different cultures eating together" /></div>
+        <div class="project-row__media"><img loading="lazy" decoding="async" src="images/subr.jpg" alt="A shared table of people from different cultures eating together" /></div>
         <div class="project-row__body">
           <span class="tag tag--muted project-row__eyebrow">Ongoing</span>
           <h3 class="project-row__name">Melting Pot</h3>
@@ -159,7 +167,7 @@
         </div>
       </article>
       <article class="project-row fade-up" id="casa">
-        <div class="project-row__media"><img src="images/1617822250027.jpg" alt="A rendering of the future CASA space" /></div>
+        <div class="project-row__media"><img loading="lazy" decoding="async" src="images/1617822250027.jpg" alt="A rendering of the future CASA space" /></div>
         <div class="project-row__body">
           <span class="tag project-row__eyebrow">Coming 2027</span>
           <h3 class="project-row__name">CASA</h3>
@@ -180,10 +188,10 @@
       <h2 class="section-title">This is what<br /><em style="color:var(--terracotta-light)">an evening looks like.</em></h2>
     </div>
     <div class="wrap galleria-grid">
-      <div class="gal-item fade-up"><img src="images/subr.jpg" alt="A table of people eating together" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-2.jpg" alt="Hands working dough" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-3.jpg" alt="A finished dish" /></div>
-      <div class="gal-item fade-up"><img src="images/gallery-4.jpg" alt="The kitchen mid-workshop" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/subr.jpg" alt="A table of people eating together" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-2.jpg" alt="Hands working dough" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-3.jpg" alt="A finished dish" /></div>
+      <div class="gal-item fade-up"><img loading="lazy" decoding="async" src="images/gallery-4.jpg" alt="The kitchen mid-workshop" /></div>
     </div>
   </section>
 
@@ -204,7 +212,7 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
           and lessons, and private events. CASA is the fixed home she's building for all of it.
         </p>
       </div>

@@ -1,20 +1,28 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CASA — Raffaella: catering, workshops & private events in Schiedam</title>
-  <meta name="description" content="Raffaella cooks in Schiedam, Delft and Rotterdam: catering, hands-on cooking workshops and private events. Get in touch directly." />
-  <meta property="og:title" content="CASA — Raffaella: catering, workshops & private events in Schiedam" />
-  <meta property="og:description" content="Raffaella cooks in Schiedam, Delft and Rotterdam: catering, hands-on cooking workshops and private events. Get in touch directly." />
+  <title>CASA — Raffaella Amista, Italian cook in Schiedam</title>
+  <meta name="description" content="Raffaella Amista, Neapolitan cook in Schiedam, Delft and Rotterdam: Italian catering, hands-on cooking workshops and private chef dinners. Italiaanse catering en kookworkshops." />
+  <meta property="og:title" content="CASA — Raffaella Amista, Italian cook in Schiedam" />
+  <meta property="og:description" content="Raffaella Amista, Neapolitan cook in Schiedam, Delft and Rotterdam: Italian catering, hands-on cooking workshops and private chef dinners. Italiaanse catering en kookworkshops." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/montanara.jpg" />
+  <meta property="og:image" content="https://casa-schiedam.nl/images/montanara.jpg" />
+  <meta property="og:url" content="https://casa-schiedam.nl/" />
+  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://casa-schiedam.nl/" />
   <meta name="theme-color" content="#C1674A" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
+  {% include site-jsonld.html %}
 </head>
 <body>
 
@@ -44,8 +52,9 @@
   <!-- HERO — Raffa, first, with the CTAs -->
   <section class="hero">
     <div class="hero-left">
-      <span class="hero-eyebrow">Schiedam &middot; Catering, workshops &amp; private events</span>
+      <span class="hero-eyebrow" aria-hidden="true">Raffaella Amista &middot; Italian catering, workshops &amp; private events in Schiedam</span>
       <h1 class="hero-title">
+        <span class="sr-only">Raffaella Amista — Italian catering, workshops &amp; private events in Schiedam: </span>
         Ciao, I'm<br />Raffaella.<br />
         <em>Welcome to my kitchen.</em>
       </h1>
@@ -92,7 +101,7 @@
         <div class="project-card fade-up" data-date="2026-10-10">
           <div class="project-card__media">
             <span class="project-card__badge"><span class="day">10</span><span class="month">Oct</span></span>
-            <img src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" />
+            <img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" />
           </div>
           <div class="project-card__body">
             <span class="tag tag--light project-card__eyebrow">Fresh pasta &middot; Melting Pot</span>
@@ -104,7 +113,7 @@
         <div class="project-card fade-up" data-date="2026-11-15">
           <div class="project-card__media">
             <span class="project-card__badge"><span class="day">15</span><span class="month">Nov</span></span>
-            <img src="images/gallery-1.jpg" alt="A pasta workshop in progress" />
+            <img loading="lazy" decoding="async" src="images/gallery-1.jpg" alt="A pasta workshop in progress" />
           </div>
           <div class="project-card__body">
             <span class="tag tag--light project-card__eyebrow">Fresh pasta &middot; Melting Pot</span>
@@ -114,7 +123,7 @@
           </div>
         </div>
         <div class="project-card fade-up">
-          <div class="project-card__media"><img src="images/cene.jpg" alt="A private dinner table laid for guests" /></div>
+          <div class="project-card__media"><img loading="lazy" decoding="async" src="images/cene.jpg" alt="A private dinner table laid for guests" /></div>
           <div class="project-card__body">
             <span class="tag tag--muted project-card__eyebrow">Private events</span>
             <h3 class="project-card__name">Aperitivo, lunch or dinner</h3>
@@ -123,11 +132,11 @@
           </div>
         </div>
         <div class="project-card fade-up">
-          <div class="project-card__media"><img src="images/montanara2.jpg" alt="Neapolitan pizza dough being shaped" /></div>
+          <div class="project-card__media"><img loading="lazy" decoding="async" src="images/montanara2.jpg" alt="Neapolitan pizza dough being shaped" /></div>
           <div class="project-card__body">
             <span class="tag tag--muted project-card__eyebrow">Workshops</span>
             <h3 class="project-card__name">Book a workshop</h3>
-            <p class="project-card__desc">Fresh pasta, Melting Pot world cuisine &mdash; hands in the flour from minute one.</p>
+            <p class="project-card__desc">Fresh pasta and Melting Pot, the culinary conversation lab &mdash; hands in the flour from minute one.</p>
             <a href="workshops.html" class="project-card__link">See the workshops &rarr;</a>
           </div>
         </div>
@@ -147,7 +156,7 @@
     <div class="wrap">
       <div class="offer-grid offer-grid--3">
         <a class="offer-card offer-card--tall fade-up" href="catering.html">
-          <img src="images/catering.jpg" alt="Catering platters prepared for an event" />
+          <img loading="lazy" decoding="async" src="images/catering.jpg" alt="Catering platters prepared for an event" />
           <div class="offer-card__overlay">
             <div class="offer-card__name">Catering</div>
             <p class="offer-card__desc">
@@ -158,7 +167,7 @@
           </div>
         </a>
         <a class="offer-card offer-card--tall fade-up" href="workshops.html">
-          <img src="images/workshops2.jpg" alt="People making fresh pasta by hand at a cooking workshop" />
+          <img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="People making fresh pasta by hand at a cooking workshop" />
           <div class="offer-card__overlay">
             <div class="offer-card__name">Workshops &amp; lessons</div>
             <p class="offer-card__desc">
@@ -169,7 +178,7 @@
           </div>
         </a>
         <a class="offer-card offer-card--tall fade-up" href="private-events.html">
-          <img src="images/cene.jpg" alt="A private dinner table laid for guests" />
+          <img loading="lazy" decoding="async" src="images/cene.jpg" alt="A private dinner table laid for guests" />
           <div class="offer-card__overlay">
             <div class="offer-card__name">Private events</div>
             <p class="offer-card__desc">
@@ -201,7 +210,7 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
           and lessons, and private events. CASA is the fixed home she's building for all of it.
         </p>
       </div>

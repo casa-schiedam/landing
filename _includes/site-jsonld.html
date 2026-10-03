@@ -1,0 +1,62 @@
+{% comment %}
+  Structured data (schema.org JSON-LD) describing who Raffaella Amista is and
+  what CASA offers, so Google can show a proper business/person panel.
+  Service area only — no street address until CASA has fixed premises.
+  Included on index.html and about.html.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://casa-schiedam.nl/#raffaella",
+      "name": "Raffaella Amista",
+      "alternateName": "Raffa",
+      "jobTitle": "Cook and cooking teacher",
+      "description": "Neapolitan cook based in Schiedam, offering Italian catering, hands-on cooking workshops and private chef dinners.",
+      "url": "https://casa-schiedam.nl/about.html",
+      "image": "https://casa-schiedam.nl/images/raffa.jpg",
+      "homeLocation": { "@type": "Place", "name": "Schiedam, Netherlands" },
+      "worksFor": { "@id": "https://casa-schiedam.nl/#casa" },
+      "sameAs": ["https://instagram.com/casa.schiedam"]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://casa-schiedam.nl/#casa",
+      "name": "CASA — Raffaella Amista",
+      "description": "Italian catering, cooking workshops and private events by Raffaella Amista in Schiedam, Delft and Rotterdam.",
+      "url": "https://casa-schiedam.nl/",
+      "email": "info@casa-schiedam.nl",
+      "image": "https://casa-schiedam.nl/images/montanara.jpg",
+      "logo": "https://casa-schiedam.nl/assets/favicon.svg",
+      "founder": { "@id": "https://casa-schiedam.nl/#raffaella" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Schiedam", "addressRegion": "Zuid-Holland", "addressCountry": "NL" },
+      "areaServed": [
+        { "@type": "City", "name": "Schiedam" },
+        { "@type": "City", "name": "Delft" },
+        { "@type": "City", "name": "Rotterdam" }
+      ],
+      "servesCuisine": "Italian",
+      "sameAs": ["https://instagram.com/casa.schiedam"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Italian catering", "url": "https://casa-schiedam.nl/catering.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cooking workshops and pasta classes", "url": "https://casa-schiedam.nl/workshops.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private chef and private events", "url": "https://casa-schiedam.nl/private-events.html" } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://casa-schiedam.nl/#website",
+      "url": "https://casa-schiedam.nl/",
+      "name": "CASA — Raffaella Amista",
+      "publisher": { "@id": "https://casa-schiedam.nl/#casa" },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>

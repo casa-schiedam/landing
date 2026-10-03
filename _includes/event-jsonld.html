@@ -1,0 +1,34 @@
+{% comment %}
+  schema.org Event markup for one upcoming workshop/event collection item,
+  so Google can list it in event search results. Same front matter as
+  schedule-item.html; the price is read from the first number in `price`
+  (e.g. "€125 p.p." → 125) and left out if there isn't one.
+{% endcomment %}
+{% assign item = include.item %}
+{% assign price_num = item.price | remove: "€" | remove: "EUR" | strip | split: " " | first | replace: ",", "." %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ item.title | jsonify }},
+  "startDate": "{{ item.date | date: '%Y-%m-%d' }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  {% if item.content and item.content != "" %}"description": {{ item.content | strip_html | normalize_whitespace | strip | jsonify }},{% endif %}
+  "location": {
+    "@type": "Place",
+    "name": {{ item.place | default: "Schiedam" | jsonify }},
+    "address": {{ item.place | default: "Schiedam, Netherlands" | jsonify }}
+  },
+  "image": "https://casa-schiedam.nl/images/workshops.jpg",
+  "organizer": { "@type": "Organization", "name": "CASA — Raffaella Amista", "url": "https://casa-schiedam.nl/" },
+  "performer": { "@type": "Person", "name": "Raffaella Amista" },
+  "offers": {
+    "@type": "Offer",
+    "url": {{ item.book_url | jsonify }},
+    {% if price_num and price_num != "" and price_num != "0" %}"price": {{ price_num | jsonify }},{% endif %}
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
