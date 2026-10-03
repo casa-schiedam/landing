@@ -1625,13 +1625,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .schedule-item__action .btn-ghost { display: block; text-align: center; }
 }
 
-/* home hero on phones: Raffaella's photo first, then the text, and the
-   three "what I do" items side by side in one row */
+/* home hero on phones: greeting first ("Ciao, I'm Raffaella"), then her
+   photo, then the intro, buttons and the three "what I do" items side by
+   side. .hero-left dissolves (display: contents) so its children and the
+   photo can be ordered together in the hero's single column. */
 @media (max-width: 900px) {
-  .hero { padding-top: 4.9rem; }   /* = the phone nav's height, so the photo starts right under it */
-  .hero-right { order: -1; min-height: min(105vw, 460px); }
+  .hero { padding-top: 4.9rem; }   /* = the phone nav's height */
+  .hero-left { display: contents; }
+  .hero-left > * { margin-left: var(--gutter); margin-right: var(--gutter); }
+  .hero-eyebrow { order: 1; margin-top: 2rem; }
+  .hero-title   { order: 2; }
+  .hero-right   { order: 3; min-height: min(105vw, 460px); }
+  .hero-sub     { order: 4; margin-top: 2rem; }
+  .hero-actions { order: 5; }
+  .hero-facts   { order: 6; margin-bottom: 2.5rem; }
   .hero-photo { object-position: center 25%; }
-  .hero-left { padding-top: 2rem; }
   .hero-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
   .fact-item { max-width: none; min-width: 0; }
   .fact-value { font-size: 1.15rem; line-height: 1.05; }
