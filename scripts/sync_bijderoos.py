@@ -70,6 +70,7 @@ def main():
         print(f"sync_bijderoos: shop not reachable ({e}); skipping automatic dates")
         return 0
 
+    os.makedirs(OUT_DIR, exist_ok=True)    # git doesn't keep empty folders
     for old in glob.glob(os.path.join(OUT_DIR, PREFIX + "*.md")):
         os.remove(old)
 
@@ -138,4 +139,8 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except Exception as e:  # whatever goes wrong here must never stop the site from building
+        print(f"sync_bijderoos: failed ({e!r}); building without automatic dates")
+        sys.exit(0)
