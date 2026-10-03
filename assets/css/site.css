@@ -1280,7 +1280,6 @@ footer {
 .schedule-item__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
 .schedule-item__name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.4rem; }
 .schedule-item__place { font-size: 0.82rem; color: var(--warm-mid); font-weight: 300; }
-.schedule-item__place svg { vertical-align: -2px; margin-right: 0.3rem; opacity: 0.7; }
 .schedule-item__action { text-align: right; white-space: nowrap; }
 
 .schedule-item--past { opacity: 0.68; }
@@ -1484,6 +1483,14 @@ nav { background: rgba(228,211,180,0.94); border-bottom: 2px solid var(--dark); 
   padding: 0.45rem 0.9rem; transform: rotate(-3deg);
   align-self: flex-start;   /* stay stamp-sized inside the cards' flex column */
 }
+
+/* Font Awesome Free (solid) icons, inlined from _includes/icons/*.svg —
+   icons CC BY 4.0, Fonticons, Inc. (https://fontawesome.com/license/free).
+   They take the surrounding text colour and size. */
+.icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
+.schedule-item__place .icon { color: var(--terracotta); margin-right: 0.35rem; }
+.option-card__icon { color: var(--terracotta); line-height: 1; }
+.featured-badge .icon { margin-right: 0.3em; }
 
 /* ══════════════════════════════════════════════════════════════════════════
    FROM MY KITCHEN — photo gallery (kitchen.html) and the home-page strip
