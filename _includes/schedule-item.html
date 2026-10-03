@@ -45,6 +45,6 @@
     {% if item.time or item.duration or item.price or item.seats %}<p class="schedule-item__place" style="margin-top:0.3rem;">🕒{% if item.time %} {{ item.time | escape }}{% endif %}{% if item.duration %} · {{ item.duration | escape }}{% endif %}{% if item.price %} · {{ item.price | escape }}{% endif %}{% if item.seats %} · {{ item.seats | escape }}{% endif %}</p>{% endif %}
   </div>
   <div class="schedule-item__action">
-    {% if include.past %}{% if item.past_note %}<p class="schedule-item__place" style="margin:0;font-style:italic;">{{ item.past_note | escape }}</p>{% endif %}{% else %}<a class="btn-ghost" href="{{ item.book_url | escape }}" target="_blank" rel="noopener">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
+    {% if include.past %}{% if item.past_note %}<p class="schedule-item__place" style="margin:0;font-style:italic;">{{ item.past_note | escape }}</p>{% endif %}{% elsif item.sold_out %}<span class="schedule-item__soldout">Sold out</span>{% else %}<a class="btn-ghost" href="{{ item.book_url | escape }}" target="_blank" rel="noopener">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
   </div>
 </div>

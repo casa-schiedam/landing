@@ -28,7 +28,7 @@
     "url": {{ item.book_url | jsonify }},
     {% if price_num and price_num != "" and price_num != "0" %}"price": {{ price_num | jsonify }},{% endif %}
     "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/{% if item.sold_out %}SoldOut{% else %}InStock{% endif %}"
   }
 }
 </script>

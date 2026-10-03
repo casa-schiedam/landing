@@ -15,6 +15,21 @@ There are two kinds of date:
 If you're not sure which one, ask: "can a stranger book a seat at this?" —
 if yes, it's a workshop.
 
+## Pasta Making with Raffa & Vale — automatic, nothing to do
+
+The Rose Molen pasta workshops are **not** added by hand. Every night (and
+every time the site is updated) the site reads the Bij de Roos webshop and
+shows every "Pasta making with Raffa and Vale …" session in the **next three
+months**, each with its own booking link. Later sessions appear by
+themselves as they come within three months; sold-out ones show "Sold out";
+past ones move to "Past events".
+
+So: to add, move or cancel one of those, change it **in the Bij de Roos
+shop** — the site follows within a day. Don't add a file for them here, or
+they'll show twice. (How it works: `scripts/sync_bijderoos.py`.)
+
+Everything below is for **other** dates.
+
 ## Add a date
 
 1. Open **github.com** and go to the site's repository (**casa-schiedam/landing**).

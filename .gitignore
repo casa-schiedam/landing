@@ -10,3 +10,7 @@
 # live site (the Pages workflow publishes the whole repo, so anything
 # tracked here ends up publicly served even if no page links to it).
 other_images/
+
+# Workshop dates pulled from the Bij de Roos shop at build time by
+# scripts/sync_bijderoos.py — regenerated on every build, never committed.
+_workshops/auto-bijderoos-*.md

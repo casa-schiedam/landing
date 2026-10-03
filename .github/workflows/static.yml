@@ -18,7 +18,8 @@ on:
   workflow_dispatch:
 
   # Rebuild every night so dates that have passed move to "Past events" (and
-  # drop out of the Event data Google reads) even when nobody pushes.
+  # drop out of the Event data Google reads), and new shop dates appear,
+  # even when nobody pushes.
   schedule:
     - cron: "0 3 * * *"
 
@@ -43,6 +44,12 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      # Pull Raffa & Vale's pasta workshop dates (next ~3 months, plus past
+      # ones) from the Bij de Roos shop into _workshops/ before building.
+      # Never fails the build: if the shop is down, the site just goes out
+      # without the automatic dates that night.
+      - name: Sync workshop dates from Bij de Roos
+        run: python3 scripts/sync_bijderoos.py
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

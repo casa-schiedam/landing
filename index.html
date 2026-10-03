@@ -98,30 +98,25 @@
     </div>
     <div class="wrap">
       <div class="project-grid project-grid--4">
-        <div class="project-card fade-up" data-date="2026-10-10">
+        {% comment %} The next two upcoming workshop dates (pulled from the Bij de Roos
+           shop by scripts/sync_bijderoos.py, plus any hand-written ones in
+           _workshops/). If there are none, these two cards simply don't show. {% endcomment %}
+        {% assign now = site.time %}
+        {% assign next_workshops = site.workshops | where_exp: "item", "item.date >= now" | sort: "date" %}
+        {% for item in next_workshops limit: 2 %}
+        <div class="project-card fade-up" data-date="{{ item.date | date: '%Y-%m-%d' }}">
           <div class="project-card__media">
-            <span class="project-card__badge"><span class="day">10</span><span class="month">Oct</span></span>
-            <img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="Hands rolling fresh pasta dough" />
+            <span class="project-card__badge"><span class="day">{{ item.date | date: '%-d' }}</span><span class="month">{{ item.date | date: '%b' }}</span></span>
+            {% cycle '<img loading="lazy" decoding="async" src="images/workshops2.jpg" alt="A group shaping gnocchi together at a cooking workshop" />', '<img loading="lazy" decoding="async" src="images/kitchen/handmade-fusilli.jpg" alt="Rows of handmade fusilli on a floured board" />' %}
           </div>
           <div class="project-card__body">
-            <span class="tag tag--light project-card__eyebrow">Fresh pasta &middot; Melting Pot</span>
-            <h3 class="project-card__name">Pasta Making with Raffa &amp; Vale</h3>
-            <p class="project-card__desc">Rose Molen, Delft &middot; 4:00pm &middot; &euro;125 p.p.</p>
-            <a href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener" class="project-card__link">Book on Bij de Roos &rarr;</a>
+            {% if item.tags %}<span class="tag tag--light project-card__eyebrow">{{ item.tags | join: " · " | escape }}</span>{% endif %}
+            <h3 class="project-card__name">{{ item.title | escape }}</h3>
+            <p class="project-card__desc">{{ item.place | split: " —" | first | escape }}{% if item.time %} &middot; {{ item.time | escape }}{% endif %}{% if item.price %} &middot; {{ item.price | escape }}{% endif %}{% if item.seats contains "left" %} &middot; {{ item.seats | escape }}{% endif %}</p>
+            {% if item.sold_out %}<span class="project-card__soldout">Sold out</span>{% else %}<a href="{{ item.book_url | escape }}" target="_blank" rel="noopener" class="project-card__link">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
           </div>
         </div>
-        <div class="project-card fade-up" data-date="2026-11-15">
-          <div class="project-card__media">
-            <span class="project-card__badge"><span class="day">15</span><span class="month">Nov</span></span>
-            <img loading="lazy" decoding="async" src="images/kitchen/handmade-fusilli.jpg" alt="Rows of handmade fusilli on a floured board" />
-          </div>
-          <div class="project-card__body">
-            <span class="tag tag--light project-card__eyebrow">Fresh pasta &middot; Melting Pot</span>
-            <h3 class="project-card__name">Pasta Making with Raffa &amp; Vale</h3>
-            <p class="project-card__desc">Rose Molen, Delft &middot; 12:00pm &middot; &euro;125 p.p.</p>
-            <a href="https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/" target="_blank" rel="noopener" class="project-card__link">Book on Bij de Roos &rarr;</a>
-          </div>
-        </div>
+        {% endfor %}
         <div class="project-card fade-up">
           <div class="project-card__media"><img loading="lazy" decoding="async" src="images/cene.jpg" alt="A private dinner table laid for guests" /></div>
           <div class="project-card__body">
