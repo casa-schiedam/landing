@@ -1,0 +1,151 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From my kitchen — Italian food by Raffaella Amista | CASA</title>
+  <meta name="description" content="Photos from Raffaella Amista's kitchen: handmade pasta and gnocchi, spaghetti alle vongole, sourdough and brioche, parmigiana, tarts and cakes. Neapolitan home cooking from Rotterdam, Delft and Schiedam." />
+  <meta property="og:title" content="From my kitchen — Italian food by Raffaella Amista | CASA" />
+  <meta property="og:description" content="Photos from Raffaella Amista's kitchen: handmade pasta and gnocchi, spaghetti alle vongole, sourdough and brioche, parmigiana, tarts and cakes. Neapolitan home cooking from Rotterdam, Delft and Schiedam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://casa-schiedam.nl/images/kitchen/spaghetti-alle-vongole.jpg" />
+  <meta property="og:url" content="https://casa-schiedam.nl/kitchen.html" />
+  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://casa-schiedam.nl/kitchen.html" />
+  <meta name="theme-color" content="#1F6E3A" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <link rel="stylesheet" href="assets/css/site.css?v={{ site.time | date: '%s' }}" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">CAS<span>A</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li class="has-submenu">
+        <a href="about.html">About Raffa</a>
+        <ul class="submenu">
+          <li><a href="about.html#momo">Momo Cooking</a></li>
+          <li><a href="about.html#melting-pot">Melting Pot</a></li>
+          <li><a href="about.html#casa">CASA</a></li>
+        </ul>
+      </li>
+      <li><a href="catering.html">Catering</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="private-events.html">Private Events</a></li>
+      <li><a href="kitchen.html">From my kitchen</a></li>
+      <li><a href="events.html">Agenda</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <img class="page-hero__bg" src="images/kitchen/pasta-drying-outdoors.jpg" alt="" aria-hidden="true" />
+    <div class="page-hero__inner">
+      <span class="section-label" aria-hidden="true">From my kitchen &middot; Raffaella Amista</span>
+      <h1 class="page-hero__title"><span class="sr-only">From my kitchen — Italian food by Raffaella Amista: </span>What comes out<br /><em>of my kitchen.</em></h1>
+      <p class="page-hero__sub">
+        Pasta rolled by hand, bread left to rise overnight, the Sunday dishes of Naples &mdash; cooked
+        at home, for family, friends and guests. Tap any photo to see it big.
+      </p>
+    </div>
+  </header>
+
+  <!-- GALLERY — photos and their descriptions come from _data/kitchen.yml -->
+  <section class="section section--cream section--tight">
+    <div class="wrap">
+      <div class="kitchen-filters fade-up" role="group" aria-label="Show photos of">
+        <button type="button" class="kitchen-filter is-active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="kitchen-filter" data-filter="pasta" aria-pressed="false">Handmade pasta</button>
+        <button type="button" class="kitchen-filter" data-filter="dishes" aria-pressed="false">Pasta &amp; plates</button>
+        <button type="button" class="kitchen-filter" data-filter="bread" aria-pressed="false">Bread &amp; dough</button>
+        <button type="button" class="kitchen-filter" data-filter="oven" aria-pressed="false">Oven &amp; sweets</button>
+      </div>
+      <ul class="kitchen-grid">
+        {% for p in site.data.kitchen %}
+        <li class="kitchen-item" data-category="{{ p.category }}">
+          <a href="images/kitchen/{{ p.file }}" class="kitchen-item__link" data-full="images/kitchen/{{ p.file }}">
+            <img src="images/kitchen/thumb/{{ p.file }}" alt="{{ p.alt | escape }}" loading="lazy" decoding="async"{% if p.width %} width="{{ p.width }}" height="{{ p.height }}"{% endif %} />
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX — filled in by assets/js/kitchen.js -->
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" src="" alt="" />
+    </figure>
+    <button type="button" class="lightbox__btn lightbox__close" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox__btn lightbox__prev" aria-label="Previous photo">&larr;</button>
+    <button type="button" class="lightbox__btn lightbox__next" aria-label="Next photo">&rarr;</button>
+    <span class="lightbox__count" aria-live="polite"></span>
+  </dialog>
+
+  <!-- FINAL CTA -->
+  <div class="cta-final">
+    <span class="section-label">Hungry?</span>
+    <h2 class="section-title">Want this<br /><em>on your table?</em></h2>
+    <p>Catering for your event, a themed dinner at home, or a workshop where you make it yourself.</p>
+    <div class="btn-row">
+      <a href="contact.html" class="btn-primary">Get in touch &rarr;</a>
+      <a href="catering.html" class="btn-ghost btn-ghost--light">Catering</a>
+      <a href="private-events.html" class="btn-ghost btn-ghost--light">Private events</a>
+      <a href="workshops.html" class="btn-ghost btn-ghost--light">Workshops</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">CASA</div>
+        <p class="footer-blurb">
+          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          and lessons, and private events. CASA is the fixed home she's building for all of it.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col__title">Book</div>
+        <ul class="footer-links">
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="workshops.html">Workshops &amp; lessons</a></li>
+          <li><a href="private-events.html">Private events</a></li>
+          <li><a href="contact.html">Ask a question</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col__title">CASA</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Raffa</a></li>
+          <li><a href="events.html">Agenda</a></li>
+          <li><a href="kitchen.html">From my kitchen</a></li>
+          <li><a href="support.html">Support the project</a></li>
+          <li><a href="#" data-contact-email>info@casa-schiedam.nl</a></li>
+          <li><a href="#" target="_blank" rel="noopener" data-contact-instagram data-contact-instagram-text>@casa.schiedam</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; <span data-year>2026</span> CASA &middot; Schiedam, NL &middot; <a href="privacy.html" style="color:inherit;">Privacy</a></span>
+      <span class="footer-copy">Built with love, flour and a lot of noise.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js?v={{ site.time | date: '%s' }}"></script>
+  <script src="assets/js/kitchen.js?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="assets/js/site.js?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

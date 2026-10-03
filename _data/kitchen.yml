@@ -1,0 +1,209 @@
+# Photos on the "From my kitchen" page (kitchen.html), in display order.
+#
+# To add a photo:
+#   1. Put a big version (max ~1600px) in images/kitchen/ and a small one
+#      (about 700px wide) with the SAME name in images/kitchen/thumb/
+#   2. Add an entry below: file name, category, and a short description of
+#      what's in the photo (Google and screen readers read it).
+#      width/height are the small version's size in pixels; they stop the
+#      grid jumping while photos load. Optional — leave them out if unsure.
+# Categories: pasta  = handmade pasta
+#             dishes = pasta & plates
+#             bread  = bread & dough
+#             oven   = oven dishes & sweets
+
+- file: fresh-tagliatelle-in-hands.jpg
+  width: 700
+  height: 525
+  category: pasta
+  alt: "Two hands holding a nest of fresh egg tagliatelle"
+- file: shaping-fresh-pasta.jpg
+  width: 525
+  height: 700
+  category: pasta
+  alt: "Fresh pasta being rolled and cut by hand on a wooden board"
+- file: handmade-fusilli.jpg
+  width: 525
+  height: 700
+  category: pasta
+  alt: "Rows of handmade fusilli on a floured board"
+- file: rows-of-gnocchi.jpg
+  width: 700
+  height: 525
+  category: pasta
+  alt: "Rows of freshly shaped potato gnocchi"
+- file: gnocchi-and-parmigiano.jpg
+  width: 393
+  height: 700
+  category: pasta
+  alt: "Gnocchi on a tray next to a block of Parmigiano and a grater"
+- file: pasta-drying-outdoors.jpg
+  width: 700
+  height: 525
+  category: pasta
+  alt: "Trays of handmade pasta drying outdoors in the garden"
+- file: porcini-and-pappardelle.jpg
+  width: 700
+  height: 525
+  category: pasta
+  alt: "Porcini mushrooms and rosemary beside fresh pappardelle"
+- file: spaghetti-al-pomodoro.jpg
+  width: 700
+  height: 393
+  category: dishes
+  alt: "Spaghetti al pomodoro with basil and grated cheese"
+- file: spaghetti-alle-vongole.jpg
+  width: 525
+  height: 700
+  category: dishes
+  alt: "Spaghetti alle vongole with parsley and cherry tomatoes"
+- file: vongole-blue-plate.jpg
+  width: 700
+  height: 700
+  category: dishes
+  alt: "Spaghetti with clams on a blue-patterned plate"
+- file: fusilli-al-pesto.jpg
+  width: 525
+  height: 700
+  category: dishes
+  alt: "Handmade fusilli on a bed of basil pesto"
+- file: gnocchi-alla-sorrentina.jpg
+  width: 700
+  height: 700
+  category: dishes
+  alt: "Gnocchi alla sorrentina with tomato, mozzarella and basil"
+- file: spaghetti-with-aubergine.jpg
+  width: 525
+  height: 700
+  category: dishes
+  alt: "A nest of spaghetti with fried aubergine and mint"
+- file: spaghetti-pie.jpg
+  width: 700
+  height: 700
+  category: dishes
+  alt: "A golden spaghetti pie topped with basil"
+- file: apple-rosemary-risotto.jpg
+  width: 700
+  height: 700
+  category: dishes
+  alt: "Apple and rosemary risotto plated in a ring"
+- file: montanara-fried-pizza.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "Montanara, Neapolitan fried pizza with tomato, basil and cheese"
+- file: pizza-potatoes-and-speck.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "Pizza topped with potatoes, speck and rosemary"
+- file: stuffed-focaccia.jpg
+  width: 700
+  height: 463
+  category: bread
+  alt: "Slices of stuffed focaccia"
+- file: golden-country-loaf.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "A golden home-baked country loaf"
+- file: rustic-loaves.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "Three rustic loaves of bread in a basket"
+- file: sourdough-crumb.jpg
+  width: 700
+  height: 525
+  category: pasta
+  alt: "Anellini alla Siciliana"
+- file: filled-bread-ring.jpg
+  width: 700
+  height: 700
+  category: bread
+  alt: "A filled bread ring wrapped in aubergine"
+- file: brioche-breakfast.jpg
+  width: 700
+  height: 700
+  category: bread
+  alt: "Brioche loaf with marmalade and a cup of milk for breakfast"
+- file: sesame-brioche-buns.jpg
+  width: 525
+  height: 700
+  category: bread
+  alt: "Golden sesame brioche buns fresh from the oven"
+- file: burger-homemade-bun.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "A burger in a homemade sesame bun with rocket"
+- file: small-bread-rolls.jpg
+  width: 700
+  height: 700
+  category: bread
+  alt: "A tray of small glazed bread rolls with yellow roses"
+- file: stuffed-bread.jpg
+  width: 700
+  height: 525
+  category: bread
+  alt: "A stuffed bread loaf on a wooden board"
+- file: parmigiana.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "Parmigiana di melanzane with basil"
+- file: parmigiana-close-up.jpg
+  width: 525
+  height: 700
+  category: oven
+  alt: "Close-up of a golden parmigiana in its tray"
+- file: stuffed-aubergines.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "Baked stuffed aubergines with tomatoes and mozzarella"
+- file: courgette-pesto-bake.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "A pasta bake with courgettes and pesto"
+- file: rosemary-quiche.jpg
+  width: 700
+  height: 525
+  category: oven
+  alt: "A savoury tart with rosemary"
+- file: vegetable-spiral-tart.jpg
+  width: 700
+  height: 393
+  category: oven
+  alt: "A vegetable spiral tart of courgette and carrot ribbons"
+- file: apple-rose-tart.jpg
+  width: 700
+  height: 525
+  category: oven
+  alt: "An apple rose tart with lavender"
+- file: crumble-tart.jpg
+  width: 700
+  height: 525
+  category: oven
+  alt: "A berry crumble tart"
+- file: apple-cake.jpg
+  width: 525
+  height: 700
+  category: oven
+  alt: "A slice of apple cake dusted with sugar"
+- file: chocolate-cake.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "A chocolate cake topped with cream and bee pollen"
+- file: brownie-with-popcorn.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "A brownie with caramel popcorn"
+- file: mimosa-cake.jpg
+  width: 700
+  height: 700
+  category: oven
+  alt: "Torta mimosa decorated with strawberries and mint"
