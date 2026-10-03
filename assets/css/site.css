@@ -1106,8 +1106,11 @@ footer {
   .storia-photo-secondary { flex: 0.6; }
 
   .offer-grid { grid-template-columns: 1fr; }
-  .offer-card { aspect-ratio: 16/9; }
-  .offer-card__overlay { padding: 1.8rem; }
+  /* the tile grows to fit its text (a fixed 16:9 box cut the title off);
+     the photo fills whatever height that turns out to be */
+  .offer-card, .offer-card--tall { aspect-ratio: auto; min-height: 260px; display: flex; }
+  .offer-card img { position: absolute; inset: 0; }
+  .offer-card__overlay { position: relative; inset: auto; flex: 1; padding: 4.5rem 1.6rem 1.6rem; }
 
   .listing { grid-template-columns: 1fr; }
   .listing-item__media { aspect-ratio: 16/9; }
@@ -1620,6 +1623,19 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
   /* schedule dates: the booking button gets the full card width */
   .schedule-item__action .btn-ghost { display: block; text-align: center; }
+}
+
+/* home hero on phones: Raffaella's photo first, then the text, and the
+   three "what I do" items side by side in one row */
+@media (max-width: 900px) {
+  .hero { padding-top: 4.9rem; }   /* = the phone nav's height, so the photo starts right under it */
+  .hero-right { order: -1; min-height: min(105vw, 460px); }
+  .hero-photo { object-position: center 25%; }
+  .hero-left { padding-top: 2rem; }
+  .hero-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+  .fact-item { max-width: none; min-width: 0; }
+  .fact-value { font-size: 1.15rem; line-height: 1.05; }
+  .fact-label { font-size: 0.75rem; letter-spacing: 0.03em; overflow-wrap: anywhere; }
 }
 
 /* very small phones (iPhone SE, older Androids) */
