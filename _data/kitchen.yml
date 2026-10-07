@@ -115,13 +115,13 @@
 - file: sourdough-crumb.jpg
   width: 700
   height: 525
-  category: pasta
-  alt: "Anellini alla Siciliana"
+  category: bread
+  alt: "A sourdough loaf cut in half, showing its open crumb"
 - file: filled-bread-ring.jpg
   width: 700
   height: 700
   category: oven
-  alt: "A baked anellini timballo wrapped in aubergine"
+  alt: "Anellini alla Siciliana, baked in an aubergine crust"
 - file: brioche-breakfast.jpg
   width: 700
   height: 700
