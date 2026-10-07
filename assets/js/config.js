@@ -35,7 +35,7 @@ window.CASA_CONFIG = {
 
   // --- Crowdfunding campaign (secondary; shown in the support band) ---
   campaign: {
-    live: true,                    // set to false to hide the campaign band everywhere
+    live: false,                   // on hold for now (support.html shows "more soon to come"); true shows the campaign band
     url: '#',                      // paste the Ulule campaign URL here
     raised: 0,
     goal: 40000,

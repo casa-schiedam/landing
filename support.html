@@ -1,14 +1,16 @@
 ---
+sitemap: false
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support CASA — crowdfunding for a community kitchen in Schiedam</title>
-  <meta name="description" content="Help Raffaella Amista open CASA, a permanent kitchen in Schiedam where people cook and eat together. See the rewards and support the crowdfunding campaign." />
-  <meta property="og:title" content="Support CASA — crowdfunding for a community kitchen in Schiedam" />
-  <meta property="og:description" content="Help Raffaella Amista open CASA, a permanent kitchen in Schiedam where people cook and eat together. See the rewards and support the crowdfunding campaign." />
+  <title>CASA — more soon to come</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="CASA, a permanent kitchen in Schiedam where people cook and eat together, is on its way. More soon to come." />
+  <meta property="og:title" content="CASA — more soon to come" />
+  <meta property="og:description" content="CASA, a permanent kitchen in Schiedam where people cook and eat together, is on its way. More soon to come." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://casa-schiedam.nl/images/1617822250027.jpg" />
   <meta property="og:url" content="https://casa-schiedam.nl/support.html" />
@@ -49,22 +51,26 @@
   </nav>
 
   <!-- HERO -->
+  <!-- The crowdfunding campaign is on hold for now. Its full page (progress,
+       rewards, FAQ) is kept below inside a Liquid comment block, so bringing it
+       back means removing those comment tags and restoring the campaign hero. -->
   <header class="page-hero">
     <img class="page-hero__bg" src="images/1617822250027.jpg" alt="" aria-hidden="true" />
     <div class="page-hero__inner">
-      <span class="section-label" aria-hidden="true">Crowdfunding &middot; A community kitchen in Schiedam</span>
-      <h1 class="page-hero__title"><span class="sr-only">Crowdfunding — A community kitchen in Schiedam: </span>CASA is coming<br />to Schiedam.<br /><em>Help us open the door.</em></h1>
+      <span class="section-label" aria-hidden="true">CASA &middot; Schiedam</span>
+      <h1 class="page-hero__title">CASA is coming<br />to Schiedam.<br /><em>More soon to come.</em></h1>
       <p class="page-hero__sub">
         A place to cook together, eat together, get to know each other, and feel at home.
-        The workshops, the dinners and the catering already exist. The building doesn't &mdash; yet.
+        We'll share more about how you can be part of it very soon.
       </p>
       <div class="btn-row">
-        <a href="#" class="btn-primary" target="_blank" rel="noopener" data-campaign-url>Support us on Ulule &rarr;</a>
-        <a href="#rewards" class="btn-ghost btn-ghost--light">See the rewards</a>
+        <a href="workshops.html" class="btn-primary">See the workshops &rarr;</a>
+        <a href="contact.html" class="btn-ghost btn-ghost--light">Write to Raffaella</a>
       </div>
     </div>
   </header>
 
+  {% comment %}
   <!-- PROGRESS -->
   <section class="section section--dark section--tight" data-campaign-band>
     <div class="wrap">
@@ -217,6 +223,7 @@
       <a href="workshops.html" class="btn-ghost btn-ghost--light">Or book a workshop instead</a>
     </div>
   </div>
+  {% endcomment %}
 
   <!-- FOOTER -->
   <footer>
@@ -243,7 +250,6 @@
           <li><a href="about.html">About Raffa</a></li>
           <li><a href="events.html">Agenda</a></li>
           <li><a href="kitchen.html">From my kitchen</a></li>
-          <li><a href="support.html">Support the project</a></li>
           <li><a href="#" data-contact-email>info@casa-schiedam.nl</a></li>
           <li><a href="#" target="_blank" rel="noopener" data-contact-instagram data-contact-instagram-text>@casa.schiedam</a></li>
         </ul>
