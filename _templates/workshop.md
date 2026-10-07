@@ -28,7 +28,7 @@ title: "Fresh Pasta Lab"
 date: 2026-10-10
 time: "4:00pm"
 duration: "about 3 hours"
-place: "Rose Molen, Delft — the former millers' living room"
+place: "Molen de Roos, Delft (the former millers' living room)"
 price: "€65 p.p."
 seats: "max 10 seats"
 tags:

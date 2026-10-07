@@ -17,7 +17,7 @@ if yes, it's a workshop.
 
 ## Pasta Making with Raffa & Vale — automatic, nothing to do
 
-The Rose Molen pasta workshops are **not** added by hand. Every night (and
+The Molen de Roos pasta workshops are **not** added by hand. Every night (and
 every time the site is updated) the site reads the Bij de Roos webshop and
 shows every "Pasta making with Raffa and Vale …" session in the **next three
 months**, each with its own booking link. Later sessions appear by

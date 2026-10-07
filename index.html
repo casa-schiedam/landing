@@ -112,7 +112,7 @@
           <div class="project-card__body">
             {% if item.tags %}<span class="tag tag--light project-card__eyebrow">{{ item.tags | join: " · " | escape }}</span>{% endif %}
             <h3 class="project-card__name">{{ item.title | escape }}</h3>
-            <p class="project-card__desc">{{ item.place | split: " —" | first | escape }}{% if item.time %} &middot; {{ item.time | escape }}{% endif %}{% if item.price %} &middot; {{ item.price | escape }}{% endif %}{% if item.seats contains "left" %} &middot; {{ item.seats | escape }}{% endif %}</p>
+            <p class="project-card__desc">{{ item.place | split: " (" | first | escape }}{% if item.time %} &middot; {{ item.time | escape }}{% endif %}{% if item.price %} &middot; {{ item.price | escape }}{% endif %}{% if item.seats contains "left" %} &middot; {{ item.seats | escape }}{% endif %}</p>
             {% if item.sold_out %}<span class="project-card__soldout">Sold out</span>{% else %}<a href="{{ item.book_url | escape }}" target="_blank" rel="noopener" class="project-card__link">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
           </div>
         </div>

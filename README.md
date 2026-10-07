@@ -49,13 +49,13 @@ grep -rln "needs-content" *.html
 That includes:
 - **`about.html`** — real numbers for "Experience" (years cooking, roughly how
   many workshops/events so far); and for the **Melting Pot** row, confirmation
-  that **Ferm** is a real second venue (only Rose Molen in Delft is confirmed)
+  that **Ferm** is a real second venue (only Molen de Roos in Delft is confirmed)
   and how often it actually runs.
 - **`private-events.html`** — minimum group size for aperitivo / lunch /
   dinner at home; and the "Events we've done" section (see below) — left
   completely empty, on purpose, until you add real ones.
 
-The two real "Pasta Making with Raffa & Vale" dates at Rose Molen, Delft (10
+The two real "Pasta Making with Raffa & Vale" dates at Molen de Roos, Delft (10
 Oct and 15 Nov 2026, sourced from [Bij de Roos's booking page](https://bijderoos.nl/webshop/pasta-making-with-rafa-and-vale/))
 already live in `_workshops/` — see **"Adding a date"** below for how those
 files work. Both link out to Bij de Roos since booking happens there, not on
