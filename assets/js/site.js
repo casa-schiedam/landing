@@ -261,7 +261,7 @@
 
   function mailtoFallback(form, data, subject) {
     var body = asText(form, data) +
-      '\n\n— sent from the CASA website (' + location.href.split('?')[0] + ')';
+      '\n\nSent from the CASA website (' + location.href.split('?')[0] + ')';
     var href = 'mailto:' + (CFG.contactEmail || '') +
       '?subject=' + encodeURIComponent(subject) +
       '&body=' + encodeURIComponent(body);
@@ -320,13 +320,13 @@
       // Honeypot: only a bot fills a field humans cannot see.
       var hp = form.querySelector('[name="casa_hp"]');
       if (hp && hp.value) {
-        status(statusEl, 'Thank you — your request has been sent.', 'success');
+        status(statusEl, 'Thank you, your request has been sent.', 'success');
         return;
       }
 
       var data = collect(form);
       var kind = form.getAttribute('data-casa-form');
-      var subject = 'CASA — ' + kind + (data.name ? ' — ' + data.name : '');
+      var subject = 'CASA: ' + kind + (data.name ? ' (' + data.name + ')' : '');
       data.request_type = kind;
 
       if (button) { button.disabled = true; button.textContent = 'Sending…'; }
@@ -337,7 +337,7 @@
           form.reset();
           status(
             statusEl,
-            'Thank you. Your request is on its way to Raffaella — she replies ' +
+            'Thank you. Your request is on its way to me, and I reply ' +
               (CFG.replyTime || 'as soon as possible') + '.',
             'success'
           );
@@ -351,7 +351,7 @@
           status(
             statusEl,
             'Something went wrong sending this. Please email ' +
-              (CFG.contactEmail || 'us') + ' directly — sorry about that.',
+              (CFG.contactEmail || 'us') + ' directly. Sorry about that!',
             'error'
           );
         })

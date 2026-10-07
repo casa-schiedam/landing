@@ -5,14 +5,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CASA — Raffaella Amista, Italian cook in Rotterdam, Delft &amp; Schiedam</title>
+  <title>CASA | Raffaella Amista, Italian cook in Rotterdam, Delft &amp; Schiedam</title>
   <meta name="description" content="Raffaella Amista, Neapolitan cook in Rotterdam, Delft and Schiedam: Italian catering, hands-on cooking workshops and private chef dinners. Italiaanse catering en kookworkshops." />
-  <meta property="og:title" content="CASA — Raffaella Amista, Italian cook in Rotterdam, Delft &amp; Schiedam" />
+  <meta property="og:title" content="CASA | Raffaella Amista, Italian cook in Rotterdam, Delft &amp; Schiedam" />
   <meta property="og:description" content="Raffaella Amista, Neapolitan cook in Rotterdam, Delft and Schiedam: Italian catering, hands-on cooking workshops and private chef dinners. Italiaanse catering en kookworkshops." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://casa-schiedam.nl/images/montanara.jpg" />
   <meta property="og:url" content="https://casa-schiedam.nl/" />
-  <meta property="og:site_name" content="CASA — Raffaella Amista" />
+  <meta property="og:site_name" content="CASA | Raffaella Amista" />
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://casa-schiedam.nl/" />
@@ -54,13 +54,13 @@
     <div class="hero-left">
       <span class="hero-eyebrow" aria-hidden="true">Raffaella Amista &middot; Italian catering, workshops &amp; private events</span>
       <h1 class="hero-title">
-        <span class="sr-only">Raffaella Amista — Italian catering, workshops &amp; private events: </span>
+        <span class="sr-only">Raffaella Amista: Italian catering, workshops &amp; private events: </span>
         Ciao, I'm<br />Raffaella.<br />
         <em>Welcome to my kitchen.</em>
       </h1>
       <p class="hero-sub">
         Neapolitan by birth, in the Netherlands by way of a good kitchen. I cook catering,
-        run hands-on workshops, and cook private events &mdash; always personally, always from scratch.
+        run hands-on workshops, and cook private events. Always personally, always from scratch.
         <em>Cooking for someone is an act of love.</em>
       </p>
       <div class="hero-actions">
@@ -93,7 +93,7 @@
       <span class="section-label">Events</span>
       <h2 class="section-title">Cook with me,<br /><em style="color:var(--terracotta-light)">or let me cook for you.</em></h2>
       <p class="section-intro">
-        The next public dates, and the two most direct ways to book Raffaella yourself.
+        The next public dates, and the two most direct ways to book me.
       </p>
     </div>
     <div class="wrap">
@@ -112,7 +112,7 @@
           <div class="project-card__body">
             {% if item.tags %}<span class="tag tag--light project-card__eyebrow">{{ item.tags | join: " · " | escape }}</span>{% endif %}
             <h3 class="project-card__name">{{ item.title | escape }}</h3>
-            <p class="project-card__desc">{{ item.place | split: " —" | first | escape }}{% if item.time %} &middot; {{ item.time | escape }}{% endif %}{% if item.price %} &middot; {{ item.price | escape }}{% endif %}{% if item.seats contains "left" %} &middot; {{ item.seats | escape }}{% endif %}</p>
+            <p class="project-card__desc">{{ item.place | split: " (" | first | escape }}{% if item.time %} &middot; {{ item.time | escape }}{% endif %}{% if item.price %} &middot; {{ item.price | escape }}{% endif %}{% if item.seats contains "left" %} &middot; {{ item.seats | escape }}{% endif %}</p>
             {% if item.sold_out %}<span class="project-card__soldout">Sold out</span>{% else %}<a href="{{ item.book_url | escape }}" target="_blank" rel="noopener" class="project-card__link">{{ item.book_label | default: "Book →" | escape }}</a>{% endif %}
           </div>
         </div>
@@ -122,7 +122,7 @@
           <div class="project-card__body">
             <span class="tag tag--muted project-card__eyebrow">Private events</span>
             <h3 class="project-card__name">Aperitivo, lunch or dinner</h3>
-            <p class="project-card__desc">Cooked in your kitchen, served at your table &mdash; for a small group or your event.</p>
+            <p class="project-card__desc">Cooked in your kitchen, served at your table, for a small group or your event.</p>
             <a href="private-events.html" class="project-card__link">See the formats &rarr;</a>
           </div>
         </div>
@@ -131,7 +131,7 @@
           <div class="project-card__body">
             <span class="tag tag--muted project-card__eyebrow">Workshops</span>
             <h3 class="project-card__name">Book a workshop</h3>
-            <p class="project-card__desc">Fresh pasta and Melting Pot, the culinary conversation lab &mdash; hands in the flour from minute one.</p>
+            <p class="project-card__desc">Fresh pasta and Melting Pot, the culinary conversation lab. Hands in the flour from minute one.</p>
             <a href="workshops.html" class="project-card__link">See the workshops &rarr;</a>
           </div>
         </div>
@@ -146,7 +146,7 @@
   <section class="section section--cream" id="offer">
     <div class="wrap section-head fade-up">
       <span class="section-label">What I offer</span>
-      <h2 class="section-title">Three ways<br /><em>to work with Raffaella.</em></h2>
+      <h2 class="section-title">Three ways<br /><em>to work with me.</em></h2>
     </div>
     <div class="wrap">
       <div class="offer-grid offer-grid--3">
@@ -155,8 +155,8 @@
           <div class="offer-card__overlay">
             <div class="offer-card__name">Catering</div>
             <p class="offer-card__desc">
-              From office lunches to weddings and celebrations, we bring genuine Italian flavors to your table
-              — homemade, made with carefully selected ingredients, for parties of ten to fifty.
+              From office lunches to weddings and celebrations, we bring genuine Italian flavors to your table:
+              homemade, made with carefully selected ingredients, for parties of ten to fifty.
             </p>
             <span class="offer-card__link">See the offers &rarr;</span>
           </div>
@@ -166,7 +166,7 @@
           <div class="offer-card__overlay">
             <div class="offer-card__name">Workshops &amp; lessons</div>
             <p class="offer-card__desc">
-              Cooking workshops and private lessons — fresh pasta, gnocchi, hands in the flour from minute one, and you eat what you made. 
+              Cooking workshops and private lessons: fresh pasta, gnocchi, hands in the flour from minute one, and you eat what you made. 
               Great for team building, and for meeting new people.
               </p>
             <span class="offer-card__link">See the workshops &rarr;</span>
@@ -212,7 +212,7 @@
   <div class="cta-final">
     <span class="section-label">Contact</span>
     <h2 class="section-title">Tell me what<br /><em>you have in mind.</em></h2>
-    <p>Catering, a workshop, a private event, or just a question &mdash; I read everything myself.</p>
+    <p>Catering, a workshop, a private event, or just a question? I read everything myself.</p>
     <div class="btn-row">
       <a href="contact.html" class="btn-primary">Get in touch &rarr;</a>
       <a href="about.html" class="btn-ghost btn-ghost--light">Read my story first</a>
@@ -225,8 +225,8 @@
       <div>
         <div class="footer-logo">CASA</div>
         <p class="footer-blurb">
-          Raffaella Amista cooks across Schiedam, Delft and Rotterdam: catering, cooking workshops
-          and lessons, and private events. CASA is the fixed home she's building for all of it.
+          I'm Raffaella Amista. I cook across Schiedam, Delft and Rotterdam: catering, cooking workshops
+          and lessons, and private events. CASA is the fixed home I'm building for all of it.
         </p>
       </div>
       <div>

@@ -114,7 +114,7 @@ def main():
             f"date: {date.isoformat()}",
             f"time: {yaml_str(clock(hour, minute))}",
             'duration: "about 3 hours"',
-            "place: \"Rose Molen, Delft — the former millers' living room\"",
+            "place: \"Molen de Roos, Delft (the former millers' living room)\"",
             f"price: {yaml_str(price_txt)}",
             f"seats: {yaml_str(seats)}",
             "tags:",
