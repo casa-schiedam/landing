@@ -30,7 +30,8 @@ window.CASA_CONFIG = {
   contactEmail: 'info@casa-schiedam.nl',
   phone: '',                       // e.g. '+31 6 12 34 56 78' — leave '' to hide it
   whatsapp: '',                    // e.g. '31612345678' (digits only) — leave '' to hide it
-  instagram: 'casa.schiedam',
+  instagram: 'casa_schiedam',
+  showInstagram: false,            // hidden for now; set to true to show the Instagram links everywhere
   city: 'Schiedam, The Netherlands',
 
   // --- Crowdfunding campaign (secondary; shown in the support band) ---

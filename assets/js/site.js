@@ -112,6 +112,11 @@
     if (!CFG.whatsapp) { var w = el.closest('[data-optional]'); (w || el).remove(); return; }
     el.setAttribute('href', 'https://wa.me/' + CFG.whatsapp.replace(/\D/g, ''));
   });
+  // Instagram links are in the HTML with `hidden`; they only appear when
+  // showInstagram is true in config.js.
+  if (CFG.showInstagram && CFG.instagram) {
+    document.querySelectorAll('[data-instagram]').forEach(function (el) { el.hidden = false; });
+  }
   document.querySelectorAll('[data-contact-instagram]').forEach(function (el) {
     var handle = CFG.instagram || '';
     if (el.tagName === 'A') el.setAttribute('href', 'https://instagram.com/' + handle);
