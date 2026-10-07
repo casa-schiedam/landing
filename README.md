@@ -154,7 +154,7 @@ event cards, which aren't part of either collection and don't need to be.
 | `private-events.html` | Organized by scale: at your home for small groups (aperitivo/lunch/dinner) vs. for your event (celebrations & private parties, weddings, guided food tasting, product launches & company events, other) |
 | `events.html` | A pure agenda — upcoming public dates, past events, past workshops, and one line pointing to Private Events for anything bespoke |
 | `contact.html` | The one form everything books through |
-| `support.html` | The crowdfunding campaign and rewards (linked from About &amp; the footer, not the main nav) |
+| `support.html` | The crowdfunding campaign and rewards — on hold: shows "more soon to come" and is not linked anywhere; the campaign content is kept in a Liquid comment block |
 
 The nav/footer link to `events.html` reads **"Agenda"**, not "Events" — kept
 deliberately distinct from "Private Events" in the nav, to stop the two from
