@@ -5,8 +5,6 @@ category: market
 time: "12:00pm"
 duration: "until 5:00pm"
 place: "Havenkerk, Schiedam (plus the Koemarkt and the Hoogstraat)"
-price: ""
-seats: ""
 tags:
   - "Christmas"
   - "With my stall"
