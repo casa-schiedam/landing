@@ -2,8 +2,8 @@
 title: "Kerst Makersmarkt Schiedam"
 date: 2026-12-12
 category: market
-time: "12:00"
-duration: "until 17:00"
+time: "12:00pm"
+duration: "until 5:00pm"
 place: "Havenkerk, Schiedam (plus the Koemarkt and the Hoogstraat)"
 price: ""
 seats: ""
