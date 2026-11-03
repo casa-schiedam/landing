@@ -9,9 +9,10 @@ price: ""
 seats: ""
 tags:
   - "Christmas"
+  - "With my stall"
 book_url: "https://www.sdam.nl/uitagenda/event/schiedam-kerst-makersmarkt"
 book_label: "More info →"
-past_note: "Thanks to everyone who came by!"
+past_note: "Thanks to everyone who came by the stall!"
 ---
 Christmas makers' market in the Havenkerk, part of Kerst in S'DAM:
 handmade jewellery, ceramics, gluten-free cakes, wooden boards, glühwein.
