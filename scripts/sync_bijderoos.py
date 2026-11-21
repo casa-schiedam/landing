@@ -122,7 +122,7 @@ def main():
             '  - "Melting Pot"',
             f"book_url: {yaml_str(p.get('permalink', ''))}",
             'book_label: "Book on Bij de Roos →"',
-            'image: "images/raffa-vale-molen-de-roos.jpg"',
+            'image: "images/raffa.jpeg"',
             'image_thumb: "images/kitchen/thumb/raffa-vale-molen-de-roos.jpg"',
             'image_alt: "Raffa and Vale laughing with floury hands and a rolling pin at Molen de Roos"',
             f"sold_out: {'true' if sold_out else 'false'}",
